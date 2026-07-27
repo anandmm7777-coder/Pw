@@ -1,0 +1,441 @@
+body{
+
+    background:#f5f7fb;
+
+}
+
+
+/* Subject Container */
+
+.subject-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:20px;
+
+}
+
+
+
+/* Subject Card */
+
+.subject-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:white;
+
+    padding:22px;
+
+    border-radius:22px;
+
+    box-shadow:
+    0 6px 20px rgba(0,0,0,0.07);
+
+    transition:0.3s;
+
+    color:#1e293b;
+
+}
+
+
+
+/* Full Card Click Effect */
+
+.subject-card:active{
+
+    transform:scale(0.97);
+
+}
+
+
+
+/* Icon Box */
+
+.subject-card .icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:18px;
+
+    background:#e0edff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.subject-card .icon i{
+
+    font-size:30px;
+
+    color:#2563eb;
+
+}
+
+
+
+/* Text */
+
+.subject-card h3{
+
+    font-size:20px;
+
+    margin-bottom:8px;
+
+}
+
+
+
+.subject-card p{
+
+    font-size:14px;
+
+    color:#64748b;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.subject-card span{
+
+    color:#2563eb;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+
+/* Hover */
+
+.subject-card:hover{
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* Mobile Responsive */
+
+@media(max-width:600px){
+
+
+.subject-card{
+
+    padding:18px;
+
+}
+
+
+.subject-card .icon{
+
+    width:55px;
+
+    height:55px;
+
+}
+
+
+.subject-card .icon i{
+
+    font-size:24px;
+
+}
+
+
+}
+.header{
+
+    display:flex;
+    align-items:center;
+    padding:20px;
+
+}
+
+.header-left{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.back-btn{
+
+    width:45px;
+    height:45px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:12px;
+
+    background:#ffffff;
+
+    color:#2563eb;
+
+    text-decoration:none;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+.back-btn:hover{
+
+    background:#2563eb;
+    color:#ffffff;
+
+}
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:70px;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+}
+
+.bottom-nav a{
+
+    flex:1;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    color:#64748b;
+
+}
+
+.bottom-nav a.active{
+
+    background:#eef4ff;
+
+    color:#2563eb;
+
+}
+/* ======================================
+   JEE Rank Tracker Pro
+   Premium Global Dark Mode
+====================================== */
+
+body.dark{
+
+    background:#0b1120 !important;
+    color:#f8fafc !important;
+
+}
+
+/* Header */
+
+body.dark header,
+body.dark .header,
+body.dark .top-bar,
+body.dark .navbar{
+
+    background:#111827 !important;
+    color:#ffffff !important;
+    border-bottom:1px solid #374151;
+
+}
+
+/* Cards */
+
+body.dark .card,
+body.dark .subject-card,
+body.dark .chapter-card,
+body.dark .lecture-card,
+body.dark .profile-card,
+body.dark .settings-group,
+body.dark .stat-card,
+body.dark .dashboard-card,
+body.dark .admin-card{
+
+    background:#1e293b !important;
+    color:#ffffff !important;
+    border:1px solid #334155;
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea,
+body.dark select{
+
+    background:#0f172a !important;
+    color:#ffffff !important;
+    border:1px solid #475569 !important;
+
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* Buttons */
+
+body.dark button{
+
+    background:#2563eb;
+    color:#ffffff;
+}
+
+body.dark button:hover{
+
+    background:#3b82f6;
+
+}
+
+/* Progress */
+
+body.dark .progress-bar{
+
+    background:#334155;
+
+}
+
+body.dark .progress-fill,
+body.dark #progressFill{
+
+    background:linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+    );
+
+}
+
+/* Navigation */
+
+body.dark .bottom-nav{
+
+    background:#111827;
+    border-top:1px solid #334155;
+
+}
+
+body.dark .bottom-nav a{
+
+    color:#cbd5e1;
+
+}
+
+body.dark .bottom-nav a.active{
+
+    color:#60a5fa;
+
+}
+
+/* Text */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6{
+
+    color:#ffffff;
+
+}
+
+body.dark p,
+body.dark span,
+body.dark label{
+
+    color:#d1d5db;
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:#1e293b;
+    color:#ffffff;
+
+}
+
+body.dark th{
+
+    background:#0f172a;
+
+}
+
+body.dark td{
+
+    border-color:#334155;
+
+}
+
+/* Scrollbar */
+
+body.dark ::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+body.dark ::-webkit-scrollbar-thumb{
+
+    background:#475569;
+    border-radius:10px;
+
+}
+
+body.dark ::-webkit-scrollbar-track{
+
+    background:#0b1120;
+
+}

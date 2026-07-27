@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Inter",sans-serif;
+}
+
+
+body{
+
+    background:#f5f7fb;
+    color:#1e293b;
+
+    padding-bottom:80px;
+
+}
+
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+h2,h3{
+    font-weight:600;
+}
+
+/* ======================================
+   JEE Rank Tracker Pro
+   Premium Global Dark Mode
+====================================== */
+
+body.dark{
+
+    background:#0b1120 !important;
+    color:#f8fafc !important;
+
+}
+
+/* Header */
+
+body.dark header,
+body.dark .header,
+body.dark .top-bar,
+body.dark .navbar{
+
+    background:#111827 !important;
+    color:#ffffff !important;
+    border-bottom:1px solid #374151;
+
+}
+
+/* Cards */
+
+body.dark .card,
+body.dark .subject-card,
+body.dark .chapter-card,
+body.dark .lecture-card,
+body.dark .profile-card,
+body.dark .settings-group,
+body.dark .stat-card,
+body.dark .dashboard-card,
+body.dark .admin-card{
+
+    background:#1e293b !important;
+    color:#ffffff !important;
+    border:1px solid #334155;
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea,
+body.dark select{
+
+    background:#0f172a !important;
+    color:#ffffff !important;
+    border:1px solid #475569 !important;
+
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder{
+
+    color:#94a3b8;
+
+}
+
+/* Buttons */
+
+body.dark button{
+
+    background:#2563eb;
+    color:#ffffff;
+}
+
+body.dark button:hover{
+
+    background:#3b82f6;
+
+}
+
+/* Progress */
+
+body.dark .progress-bar{
+
+    background:#334155;
+
+}
+
+body.dark .progress-fill,
+body.dark #progressFill{
+
+    background:linear-gradient(
+    90deg,
+    #3b82f6,
+    #60a5fa
+    );
+
+}
+
+/* Navigation */
+
+body.dark .bottom-nav{
+
+    background:#111827;
+    border-top:1px solid #334155;
+
+}
+
+body.dark .bottom-nav a{
+
+    color:#cbd5e1;
+
+}
+
+body.dark .bottom-nav a.active{
+
+    color:#60a5fa;
+
+}
+
+/* Text */
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6{
+
+    color:#ffffff;
+
+}
+
+body.dark p,
+body.dark span,
+body.dark label{
+
+    color:#d1d5db;
+
+}
+
+/* Tables */
+
+body.dark table{
+
+    background:#1e293b;
+    color:#ffffff;
+
+}
+
+body.dark th{
+
+    background:#0f172a;
+
+}
+
+body.dark td{
+
+    border-color:#334155;
+
+}
+
+/* Scrollbar */
+
+body.dark ::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+body.dark ::-webkit-scrollbar-thumb{
+
+    background:#475569;
+    border-radius:10px;
+
+}
+
+body.dark ::-webkit-scrollbar-track{
+
+    background:#0b1120;
+
+}

@@ -1,0 +1,541 @@
+/* ===========================
+   Chapters Page
+=========================== */
+
+:root{
+
+    --primary:#2563eb;
+    --primary-light:#eaf2ff;
+
+    --success:#16a34a;
+
+    --text:#1e293b;
+
+    --text-light:#64748b;
+
+    --bg:#f5f7fb;
+
+    --card:#ffffff;
+
+    --border:#e2e8f0;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --radius:22px;
+
+}
+
+
+
+body{
+
+    background:var(--bg);
+
+}
+
+
+
+/* ===========================
+   Header
+=========================== */
+
+.header{
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+}
+
+.header-left{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+.back-btn{
+
+width:45px;
+height:45px;
+
+border-radius:12px;
+
+background:#ffffff;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+color:#2563eb;
+
+text-decoration:none;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.back-btn:hover{
+
+background:#2563eb;
+
+color:#fff;
+
+}
+
+/* ===========================
+   Search Box
+=========================== */
+
+.search-box{
+
+    padding:18px;
+
+}
+
+
+
+.search-box input{
+
+    width:100%;
+
+    height:52px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:16px;
+
+    background:#fff;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+/* ===========================
+   Chapter List
+=========================== */
+
+#chapterList{
+
+    padding:0 18px 100px;
+
+}
+
+
+
+/* ===========================
+   Chapter Card
+=========================== */
+
+.chapter-card{
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:20px;
+
+    margin-bottom:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+
+    cursor:pointer;
+
+    border:1px solid transparent;
+
+}
+
+
+
+.chapter-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:var(--primary);
+
+}
+
+
+
+.chapter-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+
+.chapter-icon{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:16px;
+
+    background:var(--primary-light);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.chapter-icon i{
+
+    color:var(--primary);
+
+    font-size:24px;
+
+}
+
+
+
+.chapter-status{
+
+    background:#ecfdf3;
+
+    color:var(--success);
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+
+/* ===========================
+   Chapter Title
+=========================== */
+
+.chapter-title{
+
+    margin-top:18px;
+
+    font-size:21px;
+
+    color:var(--text);
+
+    font-weight:700;
+
+}
+
+
+
+.chapter-desc{
+
+    margin-top:6px;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+/* ===========================
+   Progress Section
+=========================== */
+
+.chapter-progress{
+
+    margin-top:20px;
+
+}
+
+.progress-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+}
+
+.progress-info span{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+    font-weight:500;
+
+}
+
+.progress-percent{
+
+    color:var(--primary) !important;
+
+    font-weight:700 !important;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:0%;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    border-radius:30px;
+
+    transition:width .5s ease;
+
+}
+
+
+
+/* ===========================
+   Bottom Section
+=========================== */
+
+.chapter-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:20px;
+
+}
+
+.lecture-count{
+
+    font-size:14px;
+
+    color:var(--text-light);
+
+}
+
+.open-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:10px 18px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.open-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* ===========================
+   Empty State
+=========================== */
+
+.empty-state{
+
+    background:#fff;
+
+    padding:40px 20px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.empty-state i{
+
+    font-size:55px;
+
+    color:#94a3b8;
+
+    margin-bottom:15px;
+
+}
+
+.empty-state h3{
+
+    color:var(--text);
+
+    margin-bottom:8px;
+
+}
+
+.empty-state p{
+
+    color:var(--text-light);
+
+}
+
+
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:768px){
+
+.chapter-card{
+
+    padding:18px;
+
+}
+
+.chapter-title{
+
+    font-size:18px;
+
+}
+
+.chapter-icon{
+
+    width:50px;
+
+    height:50px;
+
+}
+
+.chapter-icon i{
+
+    font-size:20px;
+
+}
+
+.open-btn{
+
+    padding:8px 14px;
+
+    font-size:13px;
+
+}
+
+}
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:70px;
+
+background:#fff;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+
+z-index:999;
+
+}
+
+.bottom-nav a{
+
+flex:1;
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-decoration:none;
+
+color:#64748b;
+
+transition:.3s;
+
+}
+
+.bottom-nav a i{
+
+font-size:22px;
+
+margin-bottom:4px;
+
+}
+
+.bottom-nav a span{
+
+font-size:12px;
+
+}
+
+.bottom-nav a.active{
+
+color:#2563eb;
+
+background:#eef4ff;
+
+}
