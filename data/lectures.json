@@ -1,0 +1,27 @@
+[
+{
+ "chapterId":1,
+
+ "lectures":[
+
+ {
+  "id":1,
+  "title":"Introduction to Kinematics"
+ },
+
+
+ {
+  "id":2,
+  "title":"Velocity and Acceleration"
+ },
+
+
+ {
+  "id":3,
+  "title":"Motion Graphs"
+ }
+
+ ]
+
+}
+]
