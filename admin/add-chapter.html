@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Add Chapter | JEE Admin</title>
+
+
+<!-- <link rel="stylesheet" href="css/add-chapter.css"> -->
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  /* =====================================
+   JEE Rank Tracker Pro
+   Add Chapter CSS
+   P9.2B
+===================================== */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+    background:#f1f5f9;
+    display:flex;
+    flex-direction:column;
+
+}
+
+
+
+
+/* =====================
+   Header
+===================== */
+
+
+.top-header{
+
+    height:70px;
+    background:#111827;
+    color:white;
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    padding:0 25px;
+
+}
+
+
+
+.top-header h2{
+
+    font-size:22px;
+
+}
+
+
+
+.back-btn{
+
+    color:white;
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.back-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+
+/* =====================
+   Container
+===================== */
+
+
+.container{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+
+
+
+
+
+/* =====================
+   Form Card
+===================== */
+
+
+.form-card{
+
+
+    background:white;
+
+    width:100%;
+
+    max-width:450px;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.12);
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.icon{
+
+
+    width:70px;
+
+    height:70px;
+
+    margin:auto;
+
+    background:#2563eb;
+
+    color:white;
+
+    border-radius:50%;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+.form-card h2{
+
+    margin-bottom:25px;
+
+    color:#111827;
+
+}
+
+
+
+
+
+
+/* =====================
+   Inputs
+===================== */
+
+
+label{
+
+    display:block;
+
+    text-align:left;
+
+    margin-top:15px;
+
+    margin-bottom:7px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+
+
+input,
+select{
+
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:15px;
+
+    transition:.3s;
+
+
+}
+
+
+
+input:focus,
+select:focus{
+
+
+    border-color:#2563eb;
+
+    box-shadow:
+
+    0 0 0 3px rgba(37,99,235,.15);
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+   Button
+===================== */
+
+
+button{
+
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:15px;
+
+
+    border:none;
+
+    border-radius:12px;
+
+
+    background:#2563eb;
+
+    color:white;
+
+
+    font-size:16px;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+button:hover{
+
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+
+/* =====================
+   Message
+===================== */
+
+
+#message{
+
+
+    margin-top:15px;
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+   Mobile
+===================== */
+
+
+@media(max-width:500px){
+
+
+.form-card{
+
+    padding:25px;
+
+}
+
+
+
+.top-header h2{
+
+    font-size:18px;
+
+}
+
+
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<header class="top-header">
+
+
+<a href="admin.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+
+<h2>
+
+Add New Chapter
+
+</h2>
+
+
+</header>
+
+
+
+
+
+<!-- Form Container -->
+
+
+<div class="container">
+
+
+<div class="form-card">
+
+
+<div class="icon">
+
+<i class="fa-solid fa-book-open"></i>
+
+</div>
+
+
+
+<h2>
+
+Create Chapter
+
+</h2>
+
+
+
+
+<label>
+
+Subject
+
+</label>
+
+
+<select id="chapterSubject">
+
+
+<option value="">
+
+Select Subject
+
+</option>
+
+
+<option value="Physics">
+
+Physics
+
+</option>
+
+
+<option value="Chemistry">
+
+Chemistry
+
+</option>
+
+
+<option value="Mathematics">
+
+Mathematics
+
+</option>
+
+
+</select>
+
+
+
+
+
+<label>
+
+Chapter Name
+
+</label>
+
+
+<input
+
+type="text"
+
+id="chapterName"
+
+placeholder="Example: Units and Dimensions">
+
+
+
+
+
+
+<label>
+
+Chapter Number
+
+</label>
+
+
+<input
+
+type="number"
+
+id="chapterNumber"
+
+placeholder="Example: 1">
+
+
+
+
+
+
+<button id="saveChapterBtn">
+
+
+<i class="fa-solid fa-plus"></i>
+
+Add Chapter
+
+
+</button>
+
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script>
+  // =====================================
+// JEE Rank Tracker Pro
+// Add Chapter System
+// P9.2C
+// =====================================
+
+
+
+// ===============================
+// Elements
+// ===============================
+
+
+const subjectInput =
+
+document.getElementById(
+"chapterSubject"
+);
+
+
+
+const nameInput =
+
+document.getElementById(
+"chapterName"
+);
+
+
+
+const numberInput =
+
+document.getElementById(
+"chapterNumber"
+);
+
+
+
+const saveBtn =
+
+document.getElementById(
+"saveChapterBtn"
+);
+
+
+
+const message =
+
+document.getElementById(
+"message"
+);
+
+
+
+
+
+// ===============================
+// Load Existing Chapters
+// ===============================
+
+
+let chapters =
+
+JSON.parse(
+
+localStorage.getItem("chapters")
+
+) || [];
+
+
+
+
+
+
+
+// ===============================
+// Save Chapter
+// ===============================
+
+
+saveBtn.addEventListener(
+
+"click",
+
+()=>{
+
+
+    const subject =
+
+    subjectInput.value;
+
+
+
+    const name =
+
+    nameInput.value.trim();
+
+
+
+    const number =
+
+    numberInput.value;
+
+
+
+
+
+    // Validation
+
+    if(
+        subject === "" ||
+        name === "" ||
+        number === ""
+    ){
+
+
+        showMessage(
+            "Please fill all details",
+            "error"
+        );
+
+
+        return;
+
+    }
+
+
+
+
+
+    // Duplicate Check
+
+
+    const exists = chapters.some(
+
+        chapter =>
+
+        chapter.name.toLowerCase()
+
+        ===
+
+        name.toLowerCase()
+
+    );
+
+
+
+    if(exists){
+
+
+        showMessage(
+
+        "Chapter already exists",
+
+        "error"
+
+        );
+
+
+        return;
+
+    }
+
+
+
+
+
+
+
+    // Create Chapter Object
+
+
+    const chapter = {
+
+
+        id:Date.now(),
+
+
+        subject:subject,
+
+
+        name:name,
+
+
+        number:Number(number),
+
+
+        createdAt:
+
+        new Date().toISOString()
+
+
+    };
+
+
+
+
+
+
+    // Save
+
+
+    chapters.push(chapter);
+
+
+
+    localStorage.setItem(
+
+        "chapters",
+
+        JSON.stringify(chapters)
+
+    );
+
+
+
+
+
+
+
+    showMessage(
+
+        "Chapter Added Successfully",
+
+        "success"
+
+    );
+
+
+
+
+
+    clearForm();
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+// ===============================
+// Clear Form
+// ===============================
+
+
+function clearForm(){
+
+
+    subjectInput.value="";
+
+
+    nameInput.value="";
+
+
+    numberInput.value="";
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// Message
+// ===============================
+
+
+function showMessage(text,type){
+
+
+    message.textContent=text;
+
+
+
+    if(type==="success"){
+
+
+        message.style.color="green";
+
+
+    }
+
+    else{
+
+
+        message.style.color="red";
+
+
+    }
+
+
+
+    setTimeout(()=>{
+
+
+        message.textContent="";
+
+
+    },3000);
+
+
+}
+
+</script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel | JEE Rank Tracker</title>
+
+
+<link rel="stylesheet" href="../admin/admin.css">
+
+
+<link rel="stylesheet"
+
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- ======================
+SIDEBAR
+====================== -->
+<!-- 
+<aside class="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+JEE Admin
+
+</div>
+
+
+
+<ul>
+
+
+<li class="active">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-book"></i>
+
+Chapters
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-video"></i>
+
+Lectures
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-users"></i>
+
+Students
+
+</li>
+
+
+
+<li>
+
+<i class="fa-solid fa-gear"></i>
+
+Settings
+
+</li>
+
+
+</ul>
+
+
+
+<button class="logout">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</button>
+
+
+</aside>
+ -->
+
+<div class="sidebar" id="sidebar">
+
+
+<div class="logo">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+JEE Admin
+
+</div>
+
+
+
+<a href="admin.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+
+
+<a href="add-chapter.html">
+
+<i class="fa-solid fa-folder-plus"></i>
+
+Add Chapter
+
+</a>
+
+
+
+<a href="add-lecture.html">
+
+<i class="fa-solid fa-video"></i>
+
+Add Lecture
+
+</a>
+
+
+
+<a href="../progress.html">
+
+<i class="fa-solid fa-chart-simple"></i>
+
+Progress
+
+</a>
+
+
+
+<a href="../index.html">
+
+<i class="fa-solid fa-house"></i>
+
+Home
+
+</a>
+
+
+</div>
+
+
+<!-- ======================
+MAIN CONTENT
+====================== -->
+
+
+<main class="main">
+
+
+<header class="topbar">
+<button id="menuBtn" class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+<h2>
+
+Admin Dashboard
+
+</h2>
+
+
+
+<div class="profile">
+
+<i class="fa-solid fa-user-shield"></i>
+
+Admin
+
+</div>
+
+
+</header>
+
+
+
+
+
+<!-- ======================
+STATS CARDS
+====================== -->
+
+
+<section class="cards">
+
+
+<div class="card">
+
+
+<i class="fa-solid fa-layer-group"></i>
+
+
+<div>
+
+<h3 id="totalSubjects">
+
+0
+
+</h3>
+
+
+<p>Subjects</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<i class="fa-solid fa-book-open"></i>
+
+
+<div>
+
+<h3 id="totalChapters">
+
+0
+
+</h3>
+
+
+<p>Chapters</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+
+<i class="fa-solid fa-video"></i>
+
+
+<div>
+
+<h3 id="totalLectures">
+
+0
+
+</h3>
+
+
+<p>Lectures</p>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+<!-- ======================
+Quick Actions
+====================== -->
+
+<section class="quick-actions">
+
+
+<a href="add-chapter.html" class="action-card">
+
+<i class="fa-solid fa-folder-plus"></i>
+
+<div>
+
+<h3>Add Chapter</h3>
+
+<p>Create new chapter</p>
+
+</div>
+
+</a>
+
+
+
+
+<a href="add-lecture.html" class="action-card">
+
+<i class="fa-solid fa-video"></i>
+
+<div>
+
+<h3>Add Lecture</h3>
+
+<p>Add new video lecture</p>
+
+</div>
+
+</a>
+
+
+
+</section>
+
+
+
+<!-- ======================
+ADD CHAPTER
+====================== -->
+
+
+<section class="panel">
+
+
+<h2>
+
+Add Chapter
+
+</h2>
+
+
+
+<div class="form-grid">
+
+
+<input
+
+id="chapterName"
+
+type="text"
+
+placeholder="Chapter Name">
+
+
+
+<select id="chapterSubject">
+
+
+<option>
+
+Select Subject
+
+</option>
+
+
+<option>
+
+Physics
+
+</option>
+
+
+<option>
+
+Chemistry
+
+</option>
+
+
+<option>
+
+Mathematics
+
+</option>
+
+
+</select>
+
+
+
+<button id="addChapterBtn">
+
+Add Chapter
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ======================
+ADD LECTURE
+====================== -->
+
+
+<section class="panel">
+
+
+<h2>
+
+Add Lecture
+</h2>
+
+
+
+<div class="form-grid">
+
+
+<select id="lectureChapter">
+
+
+<option>
+
+Select Chapter
+
+</option>
+
+
+</select>
+
+
+
+<input
+
+id="lectureTitle"
+
+type="text"
+
+placeholder="Lecture Title">
+
+
+
+<input
+
+id="lectureDuration"
+
+type="text"
+
+placeholder="Duration (45 min)">
+
+
+
+<input
+
+id="lectureVideo"
+
+type="text"
+
+placeholder="Video Link">
+
+
+
+<input
+
+id="lectureNotes"
+
+type="text"
+
+placeholder="Notes Link">
+
+
+
+<button id="addLectureBtn">
+
+Add Lecture
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<div class="search-admin">
+
+<input
+
+type="text"
+
+id="searchAdminLecture"
+
+placeholder="Search Lecture..."
+
+>
+
+</div>
+
+
+
+<!-- ======================
+LECTURE LIST
+====================== -->
+
+
+<section class="panel">
+
+
+<h2>
+
+Lecture Management
+
+</h2>
+
+
+
+<div class="table-box">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Title</th>
+
+<th>Chapter</th>
+
+<th>Action</th>
+  
+
+</tr>
+
+</thead>
+
+
+
+<tbody id="lectureTable">
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</section>
+
+
+
+
+</main>
+
+
+
+
+</button>
+<script>
+  const menuBtn =
+document.getElementById("menuBtn");
+
+
+const sidebar =
+document.getElementById("sidebar");
+
+
+
+menuBtn.onclick=function(){
+
+    sidebar.classList.toggle("active");
+
+};
+  // ===============================
+// Admin Notification System
+// ===============================
+ let notifications=JSON.parse(localStorage.getItem("notifications"))||[];
+
+function sendNotification(title,message){
+
+    notifications=JSON.parse(localStorage.getItem("notifications"))||[];
+
+    notifications.push({
+
+        title:title,
+
+        message:message,
+
+        time:new Date().toLocaleString()
+
+    });
+
+    localStorage.setItem(
+
+        "notifications",
+
+        JSON.stringify(notifications)
+
+    );
+
+    localStorage.setItem(
+
+        "notificationRead",
+
+        "false"
+
+    );
+  showToast(title);
+
+    alert("Notification Sent");
+
+}
+</script>
+
+<script src="js/app.js"></script>
+
+<script src="js/admin.js"></script>
+
+
+</body>
+
+</html>

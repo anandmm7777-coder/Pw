@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Add Lecture | JEE Admin</title>
+
+
+<!-- <link rel="stylesheet" href="css/add_lecture.css"> -->
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* =====================================
+   JEE Rank Tracker Pro
+   Add Lecture CSS
+   P9.2E
+===================================== */
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    background:#f1f5f9;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+
+
+
+/* =====================
+ Header
+===================== */
+
+
+.top-header{
+
+    height:70px;
+
+    background:#111827;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    padding:0 25px;
+
+}
+
+
+
+.top-header h2{
+
+    font-size:22px;
+
+}
+
+
+
+
+.back-btn{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+
+.back-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+
+
+
+
+
+/* =====================
+ Container
+===================== */
+
+
+.container{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+
+
+
+
+
+/* =====================
+ Form Card
+===================== */
+
+
+.form-card{
+
+
+    width:100%;
+
+    max-width:500px;
+
+
+    background:white;
+
+
+    padding:35px;
+
+
+    border-radius:22px;
+
+
+    box-shadow:
+
+    0 12px 35px rgba(0,0,0,.12);
+
+
+}
+
+
+
+
+
+.icon{
+
+
+    width:75px;
+
+    height:75px;
+
+
+    margin:0 auto 20px;
+
+
+    border-radius:50%;
+
+
+    background:#2563eb;
+
+
+    color:white;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    font-size:32px;
+
+
+}
+
+
+
+.form-card h2{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+    color:#111827;
+
+}
+
+
+
+
+
+
+
+/* =====================
+ Labels
+===================== */
+
+
+label{
+
+
+    display:block;
+
+
+    margin-top:16px;
+
+
+    margin-bottom:7px;
+
+
+    font-weight:600;
+
+
+    color:#374151;
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ Inputs & Select
+===================== */
+
+
+input,
+select{
+
+
+    width:100%;
+
+
+    padding:14px 15px;
+
+
+    border:1px solid #d1d5db;
+
+
+    border-radius:12px;
+
+
+    font-size:15px;
+
+
+    outline:none;
+
+
+    background:white;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+input::placeholder{
+
+
+    color:#9ca3af;
+
+
+}
+
+
+
+
+input:focus,
+select:focus{
+
+
+    border-color:#2563eb;
+
+
+    box-shadow:
+
+    0 0 0 4px rgba(37,99,235,.15);
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ Button
+===================== */
+
+
+button{
+
+
+    width:100%;
+
+
+    margin-top:28px;
+
+
+    padding:15px;
+
+
+    border:none;
+
+
+    border-radius:14px;
+
+
+    background:#2563eb;
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    font-weight:700;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+button:hover{
+
+
+    background:#1d4ed8;
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 8px 20px rgba(37,99,235,.35);
+
+
+}
+
+
+
+
+button:active{
+
+
+    transform:scale(.97);
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ Message
+===================== */
+
+
+#message{
+
+
+    text-align:center;
+
+
+    margin-top:18px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ Mobile Responsive
+===================== */
+
+
+@media(max-width:600px){
+
+
+
+.top-header{
+
+
+    padding:0 15px;
+
+
+}
+
+
+
+.top-header h2{
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+.container{
+
+
+    padding:15px;
+
+
+}
+
+
+
+
+.form-card{
+
+
+    padding:25px;
+
+
+    border-radius:18px;
+
+
+}
+
+
+
+
+.icon{
+
+
+    width:65px;
+
+    height:65px;
+
+    font-size:26px;
+
+
+}
+
+
+
+}
+  
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<header class="top-header">
+
+
+<a href="admin.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+
+<h2>
+
+Add New Lecture
+
+</h2>
+
+
+</header>
+
+
+
+
+
+
+<!-- Form -->
+
+
+<div class="container">
+
+
+<div class="form-card">
+
+
+<div class="icon">
+
+<i class="fa-solid fa-video"></i>
+
+</div>
+
+
+
+<h2>
+
+Create Lecture
+
+</h2>
+
+
+
+
+
+<label>
+
+Select Chapter
+
+</label>
+
+
+<select id="lectureChapter">
+
+
+<option value="">
+
+Select Chapter
+
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+<label>
+
+Lecture Title
+
+</label>
+
+
+<input
+
+type="text"
+
+id="lectureTitle"
+
+placeholder="Example: Introduction to Physics">
+
+
+
+
+
+
+
+<label>
+
+Lecture Duration
+
+</label>
+
+
+<input
+
+type="text"
+
+id="lectureDuration"
+
+placeholder="Example: 45 min">
+
+
+
+
+
+
+
+
+<label>
+
+Video Link
+
+</label>
+
+
+<input
+
+type="url"
+
+id="lectureVideo"
+
+placeholder="YouTube Video Link">
+
+
+
+
+
+
+
+<label>
+
+Notes Link
+
+</label>
+
+
+<input
+
+type="url"
+
+id="lectureNotes"
+
+placeholder="PDF Notes Link">
+
+
+
+
+
+
+
+<button id="saveLectureBtn">
+
+
+<i class="fa-solid fa-plus"></i>
+
+Add Lecture
+
+
+</button>
+
+
+
+
+
+<p id="message"></p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+  // =====================================
+// JEE Rank Tracker Pro
+// Add Lecture System
+// P9.2F
+// =====================================
+
+
+
+// ===============================
+// Elements
+// ===============================
+
+
+const chapterSelect =
+
+document.getElementById(
+"lectureChapter"
+);
+
+
+
+const titleInput =
+
+document.getElementById(
+"lectureTitle"
+);
+
+
+
+const durationInput =
+
+document.getElementById(
+"lectureDuration"
+);
+
+
+
+const videoInput =
+
+document.getElementById(
+"lectureVideo"
+);
+
+
+
+const notesInput =
+
+document.getElementById(
+"lectureNotes"
+);
+
+
+
+const saveBtn =
+
+document.getElementById(
+"saveLectureBtn"
+);
+
+
+
+const message =
+
+document.getElementById(
+"message"
+);
+
+
+
+
+
+
+// ===============================
+// Load Storage
+// ===============================
+
+
+let chapters =
+
+JSON.parse(
+
+localStorage.getItem("chapters")
+
+) || [];
+
+
+
+let lectures =
+
+JSON.parse(
+
+localStorage.getItem("lectures")
+
+) || [];
+
+
+
+
+
+
+
+// ===============================
+// Load Chapter Dropdown
+// ===============================
+
+
+function loadChapters(){
+
+
+    chapterSelect.innerHTML = `
+
+    <option value="">
+
+    Select Chapter
+
+    </option>
+
+    `;
+
+
+
+    chapters.forEach(chapter=>{
+
+
+        chapterSelect.innerHTML += `
+
+        <option value="${chapter.id}">
+
+        ${chapter.name}
+
+        (${chapter.subject})
+
+        </option>
+
+        `;
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+// ===============================
+// Save Lecture
+// ===============================
+
+
+saveBtn.addEventListener(
+
+"click",
+
+()=>{
+
+
+    const chapterId =
+
+    Number(chapterSelect.value);
+
+
+
+    const title =
+
+    titleInput.value.trim();
+
+
+
+    const duration =
+
+    durationInput.value.trim();
+
+
+
+    const video =
+
+    videoInput.value.trim();
+
+
+
+    const notes =
+
+    notesInput.value.trim();
+
+
+
+
+
+
+    // Validation
+
+    if(
+
+        !chapterId ||
+
+        !title
+
+    ){
+
+        showMessage(
+
+        "Please select chapter and enter title",
+
+        "error"
+
+        );
+
+
+        return;
+
+    }
+
+
+
+
+
+
+    // Duplicate Check
+
+
+    const exists = lectures.some(
+
+        lecture =>
+
+        lecture.title.toLowerCase()
+
+        ===
+
+        title.toLowerCase()
+
+    );
+
+
+
+    if(exists){
+
+
+        showMessage(
+
+        "Lecture already exists",
+
+        "error"
+
+        );
+
+
+        return;
+
+
+    }
+
+
+
+
+
+
+
+
+    // Create Lecture Object
+
+
+    const lecture = {
+
+
+        id:Date.now(),
+
+
+        chapterId:chapterId,
+
+
+        title:title,
+
+
+        duration:
+
+        duration || "45 min",
+
+
+
+        video:video,
+
+
+        notes:notes,
+
+
+
+        createdAt:
+
+        new Date().toISOString()
+
+
+    };
+
+
+
+
+
+
+    // Save
+
+
+    lectures.push(lecture);
+
+
+
+    localStorage.setItem(
+
+        "lectures",
+
+        JSON.stringify(lectures)
+
+    );
+
+
+// Create Notification
+
+let notifications = JSON.parse(localStorage.getItem("notifications")) || [];
+
+let chapter = chapters.find(
+    ch => ch.id === chapterId
+);
+
+
+notifications.unshift({
+
+    title: "New Lecture Added",
+
+    message: chapter.subject + " - " + title,
+
+    time: new Date().toLocaleString()
+
+});
+
+
+localStorage.setItem(
+
+    "notifications",
+
+    JSON.stringify(notifications)
+
+);
+
+
+
+    showMessage(
+
+    "Lecture Added Successfully",
+
+    "success"
+
+    );
+
+
+
+
+
+    clearForm();
+
+
+
+});
+
+
+
+
+
+
+
+
+// ===============================
+// Clear Form
+// ===============================
+
+
+function clearForm(){
+
+
+    titleInput.value="";
+
+
+    durationInput.value="";
+
+
+    videoInput.value="";
+
+
+    notesInput.value="";
+
+
+}
+
+
+
+
+
+
+
+// ===============================
+// Message System
+// ===============================
+
+
+function showMessage(text,type){
+
+
+    message.textContent = text;
+
+
+
+    if(type==="success"){
+
+
+        message.style.color="green";
+
+
+    }
+
+    else{
+
+
+        message.style.color="red";
+
+
+    }
+
+
+
+
+
+    setTimeout(()=>{
+
+
+        message.textContent="";
+
+
+    },3000);
+
+
+
+}
+
+
+
+
+
+
+// ===============================
+// Start
+// ===============================
+
+
+window.addEventListener(
+
+"load",
+
+()=>{
+
+
+    loadChapters();
+
+
+});
+//saveBtn.onclick=function(){
+
+//alert("Button Working");
+
+//};
+
+
+    
+  
+  
+</script>
+
+
+</body>
+
+</html>
