@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | JEE Rank Tracker</title>
+
+    <!-- <link rel="stylesheet" href="profile.css"> -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* ===========================
+   JEE Rank Tracker Pro
+   Profile Page CSS
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+    padding-bottom:30px;
+}
+
+/* Header */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#2563eb;
+    color:#fff;
+    padding:18px 20px;
+    border-radius:0 0 22px 22px;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.header h2{
+    font-size:22px;
+}
+
+.back-btn,
+.edit-btn{
+    color:#fff;
+    font-size:22px;
+    text-decoration:none;
+}
+
+/* Main */
+
+main{
+    padding:20px;
+}
+
+/* Profile Card */
+
+.profile-card{
+    background:#fff;
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.profile-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #2563eb;
+}
+
+.profile-card h2{
+    margin-top:15px;
+}
+
+.profile-card p{
+    color:#64748b;
+    margin-top:5px;
+}
+
+.verified{
+    display:inline-block;
+    margin-top:12px;
+    background:#e0edff;
+    color:#2563eb;
+    padding:8px 14px;
+    border-radius:50px;
+    font-size:14px;
+}
+
+/* Stats */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.stat-card i{
+    font-size:28px;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.stat-card h3{
+    font-size:24px;
+}
+
+.stat-card p{
+    margin-top:5px;
+    color:#64748b;
+}
+
+/* Cards */
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#2563eb;
+}
+
+/* Info */
+
+.info-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.info-item:last-child{
+    border-bottom:none;
+}
+
+.info-item span{
+    color:#64748b;
+}
+
+.info-item b{
+    color:#111827;
+}
+
+/* Achievement */
+
+.card ul{
+    list-style:none;
+}
+
+.card ul li{
+    padding:12px 0;
+    border-bottom:1px solid #e2e8f0;
+}
+
+.card ul li:last-child{
+    border-bottom:none;
+}
+
+/* Menu */
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    text-decoration:none;
+    color:#111827;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.menu-item:hover{
+    background:#e0edff;
+}
+
+.menu-item i{
+    color:#2563eb;
+    font-size:20px;
+    width:25px;
+}
+
+.logout{
+    color:#dc2626;
+}
+
+.logout i{
+    color:#dc2626;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .header h2{
+        font-size:20px;
+    }
+
+}
+  
+</style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+
+        <h2>My Profile</h2>
+
+        <a href="edit-profile.html" class="edit-btn">
+            <i class="fa-solid fa-pen"></i>
+        </a>
+
+    </header>
+
+    <main>
+
+        <!-- Profile Card -->
+
+        <section class="profile-card">
+
+            <img id="profilePhoto"
+                src="https://via.placeholder.com/120"
+                alt="Profile">
+
+            <h2 id="userName">Student Name</h2>
+
+            <p id="userEmail">student@gmail.com</p>
+
+            <span class="verified">
+                <i class="fa-solid fa-circle-check"></i>
+                Google Verified
+            </span>
+<button id="editProfileBtn">
+
+<i class="fa-solid fa-user-pen"></i>
+
+Edit Profile
+
+</button>
+        </section>
+
+        <!-- Study Stats -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <i class="fa-solid fa-book-open"></i>
+                <h3 id="chapterCount">0</h3>
+                <p>Chapters</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-circle-play"></i>
+                <h3 id="lectureCount">0</h3>
+                <p>Lectures</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-fire"></i>
+                <h3 id="streak">0</h3>
+                <p>Day Streak</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-star"></i>
+                <h3 id="xp">0</h3>
+                <p>XP</p>
+            </div>
+
+        </section>
+
+        <!-- Personal Information -->
+
+        <section class="card">
+
+            <h3>Personal Information</h3>
+
+            <div class="info-item">
+                <span>Full Name</span>
+                <b id="fullName">Student Name</b>
+            </div>
+
+            <div class="info-item">
+                <span>Email</span>
+                <b id="email">student@gmail.com</b>
+            </div>
+
+            <div class="info-item">
+                <span>Phone</span>
+                <b id="phone">Not Added</b>
+            </div>
+
+            <div class="info-item">
+                <span>Class</span>
+                <b id="className">11</b>
+            </div>
+
+            <div class="info-item">
+                <span>Target</span>
+                <b id="target">JEE Main 2027</b>
+            </div>
+
+        </section>
+
+        <!-- Goals -->
+
+        <section class="card">
+
+            <h3>Goals</h3>
+
+            <div class="info-item">
+                <span>Daily Study</span>
+                <b>8 Hours</b>
+            </div>
+
+            <div class="info-item">
+                <span>Target Rank</span>
+                <b>AIR Under 1000</b>
+            </div>
+
+            <div class="info-item">
+                <span>Dream College</span>
+                <b>IIT Bombay</b>
+            </div>
+
+        </section>
+
+        <!-- Achievements -->
+
+        <section class="card">
+
+            <h3>Achievements</h3>
+
+            <ul>
+
+                <li>🏅 First Lecture Completed</li>
+
+                <li>🔥 7 Day Streak</li>
+
+                <li>⭐ 100 XP Earned</li>
+
+                <li>📖 First Chapter Finished</li>
+
+            </ul>
+
+        </section>
+
+        <!-- Account -->
+
+        <section class="card">
+
+            <h3>Account</h3>
+
+            <a href="edit-profile.html" class="menu-item">
+                <i class="fa-solid fa-user-pen"></i>
+                Edit Profile
+            </a>
+
+            <a href="settings.html" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+<!-- 
+            <a href="" id="googleLoginBtn" class="menu-item">
+                <i class="fa-brands fa-google"></i>
+                Sign in with Google
+            </a>
+
+            <a href="#" id="logoutBtn" class="menu-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a> -->
+   
+<a href="login.html">
+<button id="loginBtn">
+<i class="fa-solid fa-right-to-bracket"></i>
+Login
+</button>
+
+
+<button id="logoutBtn" style="display:none;">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</button>
+  
+</a>
+  
+        </section>
+
+    </main>
+<script>
+  // ======================================
+// JEE Rank Tracker Pro
+// profile.js
+// Firebase Profile System
+// ======================================
+
+
+import { auth, db } from "./firebase-config.js";
+
+
+import {
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+
+// ===========================
+// ELEMENTS
+// ===========================
+
+
+const profilePhoto = document.getElementById("profilePhoto");
+
+const userName = document.getElementById("userName");
+
+const userEmail = document.getElementById("userEmail");
+
+const phone = document.getElementById("phone");
+
+const className = document.getElementById("className");
+
+const target = document.getElementById("target");
+
+const school = document.getElementById("school");
+
+const board = document.getElementById("board");
+
+const city = document.getElementById("city");
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+const editProfileBtn = document.getElementById("editProfileBtn");
+
+
+
+
+// ===========================
+// CHECK USER LOGIN
+// ===========================
+
+
+onAuthStateChanged(auth, async(user)=>{
+
+
+    if(!user){
+
+        window.location.href="login.html";
+
+        return;
+
+    }
+
+
+
+    try{
+
+
+        const userRef = doc(
+            db,
+            "profile",
+            user.uid
+        );
+
+
+        const userSnap = await getDoc(userRef);
+
+
+
+        if(userSnap.exists()){
+
+
+            const data = userSnap.data();
+
+
+
+            // PHOTO
+
+            if(profilePhoto){
+
+                profilePhoto.src =
+                data.photo || user.photoURL ||
+                "https://via.placeholder.com/120";
+
+            }
+
+
+
+            // NAME
+
+            if(userName){
+
+                userName.textContent =
+                data.name || user.displayName;
+
+            }
+
+
+
+            // EMAIL
+
+            if(userEmail){
+
+                userEmail.textContent =
+                data.email || user.email;
+
+            }
+
+
+
+            // DETAILS
+
+
+            if(phone){
+
+                phone.textContent =
+                data.phone || "Not Added";
+
+            }
+
+
+            if(className){
+
+                className.textContent =
+                data.class || "Not Added";
+
+            }
+
+
+            if(target){
+
+                target.textContent =
+                data.target || "JEE Main 2027";
+
+            }
+
+
+            if(school){
+
+                school.textContent =
+                data.school || "Not Added";
+
+            }
+
+
+            if(board){
+
+                board.textContent =
+                data.board || "Not Added";
+
+            }
+
+
+            if(city){
+
+                city.textContent =
+                data.city || "Not Added";
+
+            }
+
+
+
+        }
+
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
+
+
+});
+
+
+
+
+
+// ===========================
+// LOGOUT
+// ===========================
+
+
+if(logoutBtn){
+
+
+logoutBtn.addEventListener("click",async()=>{
+
+
+    try{
+
+
+        await signOut(auth);
+
+
+        alert("Logout Successful ✅");
+
+
+        window.location.href="login.html";
+
+
+    }
+    catch(error){
+
+        console.log(error);
+
+    }
+
+
+});
+
+
+}
+
+
+
+
+
+// ===========================
+// EDIT PROFILE
+// ===========================
+
+
+if(editProfileBtn){
+
+
+editProfileBtn.addEventListener("click",()=>{
+
+
+    window.location.href="edit-profile.html";
+
+
+});
+
+
+}
+      </script>
+
+  
+<script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

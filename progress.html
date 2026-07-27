@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>Progress Analytics</title>
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/progress.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-left">
+
+<a href="index.html"
+class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+</a>
+
+<div>
+
+<h2>Progress Analytics</h2>
+
+<p>Your JEE Performance</p>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- Overall Progress -->
+
+<section class="overall-card">
+
+<h3>Overall Progress</h3>
+
+<h1 id="overallPercent">
+
+0%
+
+</h1>
+
+<div class="progress-bar">
+
+<div id="overallFill"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- Statistics -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h2 id="lectureCount">
+
+0
+
+</h2>
+
+<p>Lectures Completed</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-star"></i>
+
+<h2 id="xpCount">
+
+0
+
+</h2>
+
+<p>Total XP</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-fire"></i>
+
+<h2 id="streakCount">
+
+0
+
+</h2>
+
+<p>Study Streak</p>
+
+</div>
+
+
+
+<div class="stat-card">
+
+<i class="fa-solid fa-trophy"></i>
+
+<h2 id="levelCount">
+
+1
+
+</h2>
+
+<p>Level</p>
+
+</div>
+
+</section>
+
+
+
+<!-- Subject Progress -->
+
+<section class="chart-card">
+
+<h3>Subject Progress</h3>
+
+<canvas id="subjectChart"></canvas>
+
+</section>
+
+
+
+<!-- Weekly Progress -->
+
+<section class="chart-card">
+
+<h3>Weekly Progress</h3>
+
+<canvas id="weeklyChart"></canvas>
+
+</section>
+
+
+
+<nav class="bottom-nav">
+
+<a href="index.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<span>Dashboard</span>
+
+</a>
+
+<a href="subjects.html">
+
+<i class="fa-solid fa-book"></i>
+
+<span>Subjects</span>
+
+</a>
+
+<a href="progress.html"
+class="active">
+
+<i class="fa-solid fa-chart-simple"></i>
+
+<span>Progress</span>
+
+</a>
+
+<a href="settings.html">
+
+<i class="fa-solid fa-gear"></i>
+
+<span>Settings</span>
+
+</a>
+
+</nav>
+
+<script src="js/app.js"></script>
+
+<script src="js/progress.js"></script>
+
+</body>
+
+</html>

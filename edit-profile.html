@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile | JEE Rank Tracker</title>
+
+    <!-- <link rel="stylesheet" href="edit-profile.css"> -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* =====================================
+   JEE Rank Tracker Pro
+   Edit Profile CSS
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#1e293b;
+    padding-bottom:40px;
+}
+
+/* Header */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
+    background:#2563eb;
+    color:#fff;
+    border-radius:0 0 20px 20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.header h2{
+    font-size:22px;
+    font-weight:700;
+}
+
+.back-btn{
+    color:#fff;
+    font-size:22px;
+    text-decoration:none;
+}
+
+.save-btn{
+    background:#16a34a;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.save-btn:hover{
+    background:#15803d;
+}
+
+/* Main */
+
+main{
+    padding:20px;
+}
+
+/* Photo Card */
+
+.photo-card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.photo-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid #2563eb;
+    margin-bottom:15px;
+}
+
+.photo-card input{
+    width:100%;
+}
+
+/* Cards */
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:18px;
+    font-size:20px;
+}
+
+/* Form */
+
+label{
+    display:block;
+    margin-top:14px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+/* Button */
+
+button{
+    cursor:pointer;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .header{
+        padding:15px;
+    }
+
+    .header h2{
+        font-size:18px;
+    }
+
+    .save-btn{
+        padding:8px 14px;
+        font-size:14px;
+    }
+
+    .photo-card img{
+        width:100px;
+        height:100px;
+    }
+
+}
+
+/* Dark Mode */
+
+body.dark{
+    background:#0f172a;
+    color:#fff;
+}
+
+body.dark .card,
+body.dark .photo-card{
+    background:#1e293b;
+    color:#fff;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea{
+    background:#0f172a;
+    color:#fff;
+    border:1px solid #475569;
+}
+
+body.dark label{
+    color:#e2e8f0;
+}
+
+body.dark .header{
+    background:#111827;
+}
+  
+</style>
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <a href="profile.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+
+        <h2>Edit Profile</h2>
+
+        <button id="saveBtn" class="save-btn">
+            Save
+        </button>
+
+    </header>
+
+    <main>
+
+        <!-- Profile Photo -->
+
+        <div class="photo-card">
+
+            <img id="previewPhoto"
+            src="https://via.placeholder.com/120"
+            alt="Profile">
+
+            <input
+            type="text"
+            id="photo"
+            placeholder="Profile Photo URL">
+
+        </div>
+
+        <!-- Personal Information -->
+
+        <div class="card">
+
+            <h3>Personal Information</h3>
+
+            <label>Full Name</label>
+            <input
+            type="text"
+            id="name"
+            placeholder="Enter your full name">
+
+            <label>Email</label>
+            <input
+            type="email"
+            id="email"
+            placeholder="Enter your email">
+
+            <label>Phone Number</label>
+            <input
+            type="tel"
+            id="phone"
+            placeholder="Enter phone number">
+
+            <label>Class</label>
+
+            <select id="className">
+
+                <option value="11">Class 11</option>
+
+                <option value="12">Class 12</option>
+
+                <option value="Dropper">Dropper</option>
+
+            </select>
+
+            <label>Target</label>
+
+            <input
+            type="text"
+            id="target"
+            placeholder="JEE Main 2027">
+
+        </div>
+
+        <!-- Academic -->
+
+        <div class="card">
+
+            <h3>Academic Details</h3>
+
+            <label>School Name</label>
+
+            <input
+            type="text"
+            id="school"
+            placeholder="School Name">
+
+            <label>Board</label>
+
+            <input
+            type="text"
+            id="board"
+            placeholder="CBSE / UP Board">
+
+            <label>City</label>
+
+            <input
+            type="text"
+            id="city"
+            placeholder="City">
+
+        </div>
+
+        <!-- Goals -->
+
+        <div class="card">
+
+            <h3>Goals</h3>
+
+            <label>Dream College</label>
+
+            <input
+            type="text"
+            id="college"
+            placeholder="IIT Bombay">
+
+            <label>Target Rank</label>
+
+            <input
+            type="text"
+            id="rank"
+            placeholder="AIR Under 1000">
+
+            <label>Daily Study Goal</label>
+
+            <input
+            type="text"
+            id="studyGoal"
+            placeholder="8 Hours">
+
+        </div>
+
+    </main>
+
+    <script>
+      import { auth, db } from "./firebase-config.js";
+
+import {
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    doc,
+    getDoc,
+    updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+// ===========================
+// INPUT ELEMENTS
+// ===========================
+
+const name = document.getElementById("name");
+const phone = document.getElementById("phone");
+const className = document.getElementById("className");
+const target = document.getElementById("target");
+
+const school = document.getElementById("school");
+const board = document.getElementById("board");
+const city = document.getElementById("city");
+
+const photo = document.getElementById("photo");
+const previewPhoto = document.getElementById("previewPhoto");
+
+const saveBtn = document.getElementById("saveBtn");
+
+let currentUser;
+
+
+// ===========================
+// LOAD PROFILE DATA
+// ===========================
+
+onAuthStateChanged(auth, async (user)=>{
+
+    if(!user){
+
+        window.location.href="login.html";
+        return;
+
+    }
+
+    currentUser = user;
+
+
+    const userRef = doc(db,"profile",user.uid);
+
+    const snap = await getDoc(userRef);
+
+
+    if(snap.exists()){
+
+        const data = snap.data();
+
+
+        name.value = data.name || "";
+
+        phone.value = data.phone || "";
+
+        className.value = data.class || "";
+
+        target.value = data.target || "";
+
+        school.value = data.school || "";
+
+        board.value = data.board || "";
+
+        city.value = data.city || "";
+
+        photo.value = data.photo || "";
+
+        previewPhoto.src =
+        data.photo || "https://via.placeholder.com/120";
+
+
+    }
+
+
+});
+
+
+// ===========================
+// PHOTO PREVIEW
+// ===========================
+
+photo.addEventListener("input",()=>{
+
+    previewPhoto.src = photo.value;
+
+});
+
+
+// ===========================
+// SAVE PROFILE
+// ===========================
+
+saveBtn.addEventListener("click", async()=>{
+
+
+    if(!currentUser) return;
+
+
+    try{
+
+
+        const userRef =
+        doc(db,"profile",currentUser.uid);
+
+
+        await updateDoc(userRef,{
+
+
+            name:name.value,
+
+            phone:phone.value,
+
+            class:className.value,
+
+            target:target.value,
+
+
+            school:school.value,
+
+            board:board.value,
+
+            city:city.value,
+
+
+            photo:photo.value
+
+
+        });
+
+
+
+        alert("Profile Updated Successfully ✅");
+
+
+        window.location.href="profile.html";
+
+
+    }
+    catch(error){
+
+
+        console.log(error);
+
+        alert(error.message);
+
+
+    }
+
+
+});
+    </script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Settings | JEE Rank Tracker Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/settings.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<header class="settings-header">
+
+<a href="javascript:history.back()" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i>
+</a>
+
+<h2>Settings</h2>
+
+</header>
+
+
+
+<div class="settings-container">
+
+<div class="profile-card">
+
+    <div class="profile-image-box">
+
+        <img
+        id="profileImage"
+        src="images/default-user.png"
+        alt="Profile">
+
+        <label for="profilePicker" class="camera-btn">
+
+            <i class="fa-solid fa-camera"></i>
+
+        </label>
+
+        <input
+        type="file"
+        id="profilePicker"
+        accept="image/*"
+        hidden>
+
+    </div>
+
+
+
+
+<h3 id="studentName">
+Student Name
+</h3>
+
+<p>
+JEE Rank Tracker Pro
+</p>
+
+</div>
+
+
+<div class="settings-group">
+
+<h4>Account</h4>
+
+<div class="setting-item" onclick="window.location.href='profile.html'">
+    <i class="fa-solid fa-user"></i>
+    <span>Profile</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+  
+
+
+
+</div>
+
+
+
+<div class="settings-group">
+
+<h4>Study</h4>
+
+<div class="setting-item">
+<i class="fa-solid fa-clock"></i>
+<span>Daily Study Goal</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<div class="setting-item">
+<i class="fa-solid fa-video"></i>
+<span>Lecture Goal</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<div class="setting-item">
+<i class="fa-solid fa-book-open"></i>
+<span>Revision Goal</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+</div>
+
+
+
+<div class="settings-group">
+
+<h4>Appearance</h4>
+
+<div class="setting-item">
+<i class="fa-solid fa-moon"></i>
+
+<span>Dark Mode</span>
+
+<label class="switch">
+
+<input type="checkbox" id="darkMode">
+
+<span class="slider"></span>
+
+</label>
+
+</div>
+
+</div>
+
+
+
+<div class="settings-group">
+
+<h4>Backup</h4>
+
+<div class="setting-item">
+<i class="fa-solid fa-download"></i>
+<span>Export Data</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<div class="setting-item">
+<i class="fa-solid fa-upload"></i>
+<span>Import Data</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+</div>
+
+
+
+<div class="settings-group">
+
+<h4>Security</h4>
+
+<div class="setting-item">
+<i class="fa-solid fa-lock"></i>
+<span>App Lock</span>
+<i class="fa-solid fa-chevron-right"></i>
+</div>
+
+</div>
+
+
+
+<div class="settings-group">
+
+<h4>About</h4>
+
+<div class="seto>
+  <a href="about.html">
+    
+<i class="fa-solid fa-circle-info"></i>
+<span>About App</span>
+<i class="fa-solid fa-chevron-right"></i>
+  </a>
+</div>
+
+<div class="setting-item">
+<i class="fa-solid fa-code"></i>
+<span>Version 1.0</span>
+</div>
+
+</div>
+
+</div>
+
+
+
+<nav class="bottom-nav">
+
+<a href="index.html">
+<i class="fa-solid fa-chart-line"></i>
+<span>Dashboard</span>
+</a>
+
+<a href="subjects.html">
+<i class="fa-solid fa-book"></i>
+<span>Subjects</span>
+</a>
+
+<a href="progress.html">
+<i class="fa-solid fa-chart-simple"></i>
+<span>Progress</span>
+</a>
+
+<a href="settings.html" class="active">
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</a>
+
+</nav>
+
+<script src="js/settings.js"></script>
+
+</body>
+
+</html>

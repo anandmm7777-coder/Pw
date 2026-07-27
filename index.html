@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JEE Rank Tracker Pro</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<header class="header">
+
+<!-- Menu Button -->
+<button class="menu-btn" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i>
+
+</button>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" onclick="toggleSidebar()">✖</a>
+
+    <a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a>
+    <a href="chapters.html"><i class="fa-solid fa-book-open"></i> Chapters</a>
+    <a href="lecture.html"> <i class="fa-solid fa-circle-play"></i>Lectures</a>
+    <a href="settings.html"> <i class="fa-solid fa-gear"></i>Settings</a>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+<div>
+<h2>JEE Rank Tracker</h2>
+<p>Target: JEE Main 2027</p>
+</div>
+
+
+  <div class="notification-wrapper">
+
+    <button id="bellBtn">🔔</button>
+
+    <span id="notificationDot" class="notification-dot"></span>
+
+</div>
+
+<div id="notificationPopup" class="fullPopup">
+
+    <div class="popupHeader">
+
+        <h2>Notifications</h2>
+
+        <button id="closeBtn">✖</button>
+
+    </div>
+
+    <div id="notificationList"></div>
+
+</div>
+<div id="toast" class="toast"></div>
+
+  
+</header>
+
+
+
+<!-- Main Container -->
+
+<main>
+
+
+
+<!-- Overall Progress -->
+
+<section class="progress-card">
+
+<h3>Overall Preparation</h3>
+
+
+<div class="circle-progress">
+
+<span>68%</span>
+
+</div>
+
+
+<p>
+Preparation Level
+</p>
+
+
+</section>
+
+
+
+
+<!-- Subject Progress -->
+
+<h2 class="section-title">
+Subject Progress
+</h2>
+
+
+<div class="subject-container">
+
+
+<div class="subject-card">
+
+<i class="fa-solid fa-atom"></i>
+
+<h3>Physics</h3>
+
+<p id="physicsText">
+0 / 0 Chapters
+</p>
+
+<div class="bar">
+<div class="fill physics" id="physicsBar"></div>
+</div>
+
+<span id="physicsPercent">0%</span>
+
+</div>
+
+
+
+<div class="subject-card">
+
+<i class="fa-solid fa-flask"></i>
+
+<h3>Chemistry</h3>
+
+<p id="chemistryText">
+0 / 0 Chapters
+</p>
+
+<div class="bar">
+<div class="fill chemistry" id="chemistryBar"></div>
+</div>
+
+<span id="chemistryPercent">0%</span>
+
+</div>
+
+
+
+
+<div class="subject-card">
+
+<i class="fa-solid fa-calculator"></i>
+
+<h3>Mathematics</h3>
+
+<p id="mathText">
+0 / 0 Chapters
+</p>
+
+<div class="bar">
+<div class="fill maths" id="mathBar"></div>
+</div>
+
+<span id="mathPercent">0%</span>
+
+</div>
+
+
+</div>
+
+
+
+<!-- Graph Section -->
+
+
+<section class="graph-card">
+
+<h2>JEE Journey Progress</h2>
+
+<div class="journey">
+
+    <div class="journey-line">
+        <div class="journey-fill" id="journeyFill"></div>
+
+        <i class="fa-solid fa-location-dot" id="progressMarker"></i>
+    </div>
+
+    <div class="journey-labels">
+        <div class="start">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span>JEE Start</span>
+        </div>
+
+        <div class="finish">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <span>JEE Mains</span>
+        </div>
+    </div>
+
+    <p id="progressText">
+        0 / 350 Lectures Completed
+    </p>
+
+</div>
+
+</section>
+
+
+
+<!-- Today's Activity -->
+
+
+<section class="activity-card">
+
+
+<h2>
+Today's Target
+</h2>
+
+
+<div class="activity">
+
+<i class="fa-solid fa-video"></i>
+
+<p>
+Lectures Completed
+</p>
+
+<b>
+5/8
+</b>
+
+</div>
+
+
+
+<div class="activity">
+
+<i class="fa-solid fa-pen"></i>
+
+<p>
+Questions Solved
+</p>
+
+<b>
+120/200
+</b>
+
+</div>
+
+
+
+<div class="activity">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+<p>
+Revision Done
+</p>
+
+<b>
+2/3
+</b>
+
+</div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+
+
+<!-- Bottom Navigation -->
+
+<nav class="bottom-nav">
+
+<a href="index.html" class="active">
+<i class="fa-solid fa-chart-line"></i>
+<span>Dashboard</span>
+</a>
+
+
+<a href="subjects.html">
+<i class="fa-solid fa-book"></i>
+<span>Subjects</span>
+</a>
+
+
+<a href="progress.html">
+<i class="fa-solid fa-chart-simple"></i>
+<span>Progress</span>
+</a>
+
+
+<a href="settings.html">
+<i class="fa-solid fa-gear"></i>
+<span>Settings</span>
+</a>
+
+</nav>
+
+<script>
+  const bellBtn=document.getElementById("bellBtn");
+const popup=document.getElementById("notificationPopup");
+const closeBtn=document.getElementById("closeBtn");
+const list=document.getElementById("notificationList");
+const dot=document.getElementById("notificationDot");
+
+let notifications=JSON.parse(localStorage.getItem("notifications"))||[];
+
+function updateDot(){
+
+    notifications=JSON.parse(localStorage.getItem("notifications"))||[];
+
+    if(
+        notifications.length>0 &&
+        localStorage.getItem("notificationRead")!="true"
+    ){
+
+        dot.style.display="block";
+
+    }else{
+
+        dot.style.display="none";
+
+    }
+
+}
+
+function showNotifications(){
+
+    notifications=JSON.parse(localStorage.getItem("notifications"))||[];
+
+    list.innerHTML="";
+
+    if(notifications.length==0){
+
+        list.innerHTML="<h3 style='text-align:center'>No Notifications</h3>";
+
+        return;
+
+    }
+
+    notifications.forEach((n,index)=>{
+
+        list.innerHTML+=`
+
+        <div class="notification">
+
+        <h3>🔔 ${n.title}</h3>
+
+        <p>${n.message}</p>
+
+        <small>${n.time}</small>
+
+        <br><br>
+
+        <button onclick="deleteNotification(${index})">
+
+        Delete
+
+        </button>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+function deleteNotification(index){
+
+    notifications.splice(index,1);
+
+    localStorage.setItem(
+        "notifications",
+        JSON.stringify(notifications)
+    );
+
+    showNotifications();
+
+    updateDot();
+
+}
+
+bellBtn.onclick=function(){
+
+    popup.style.display="block";
+
+    showNotifications();
+
+    localStorage.setItem(
+        "notificationRead",
+        "true"
+    );
+
+    updateDot();
+
+}
+
+closeBtn.onclick=function(){
+
+    popup.style.display="none";
+
+}
+
+updateDot();
+showNotifications();
+  const toast = document.getElementById("toast");
+
+function showToast(message){
+
+    toast.innerHTML = "🔔 " + message;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },30000);
+
+}
+  
+function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+  
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+<script type="module" src="js/auth.js"></script>
+
+</body>
+
+</html>
