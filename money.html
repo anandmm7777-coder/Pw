@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Pro</title>
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/money.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header class="topbar">
+
+    <h1>Finance Pro</h1>
+
+    <div class="topRight">
+
+        
+        <a href="settings.html">
+
+            <span class="material-icons">
+
+                setting
+
+            </span>
+
+        </a>
+
+    </div>
+
+</header>
+<div class="container">
+
+    <!-- Summary Cards -->
+    <section class="cards">
+
+        <div class="card income">
+            <span class="material-icons">payments</span>
+            <h3>Total Income</h3>
+            <h2 id="totalIncome">₹0</h2>
+        </div>
+
+        <div class="card expense">
+            <span class="material-icons">shopping_cart</span>
+            <h3>Total Expense</h3>
+            <h2 id="totalExpense">₹0</h2>
+        </div>
+
+        <div class="card balance">
+            <span class="material-icons">account_balance_wallet</span>
+            <h3>Remaining</h3>
+            <h2 id="remainingBalance">₹0</h2>
+        </div>
+
+        <div class="card transaction">
+            <span class="material-icons">receipt_long</span>
+            <h3>Transactions</h3>
+            <h2 id="transactionCount">0</h2>
+        </div>
+
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="actions">
+
+        <a href="income.html" class="btn incomeBtn">
+            <span class="material-icons">add_circle</span>
+            Add Income
+        </a>
+
+        <a href="expense.html" class="btn expenseBtn">
+            <span class="material-icons">remove_circle</span>
+            Add Expense
+        </a>
+
+        <a href="history.html" class="btn historyBtn">
+            <span class="material-icons">history</span>
+            History
+        </a>
+      <a href="#" id="saveMonthBtn" class="btn historyBtn">
+    <span class="material-icons">archive</span>
+    Save Month
+</a>
+<a href="archive.html" class="btn historyBtn">
+    <span class="material-icons">archive</span>
+    Archive
+</a>
+      
+    </section>
+
+    <!-- Recent Transactions -->
+    <section class="recent">
+
+        <div class="title">
+            <h2>Recent Transactions</h2>
+        </div>
+
+        <div id="transactionList">
+
+            <div class="empty">
+                <span class="material-icons">receipt</span>
+                <p>No Transactions Yet</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+    <a href="money.html" class="active">
+        <span class="material-icons">home</span>
+        <small>Home</small>
+    </a>
+
+    <a href="income.html">
+        <span class="material-icons">payments</span>
+        <small>Income</small>
+    </a>
+
+    <a href="expense.html">
+        <span class="material-icons">shopping_cart</span>
+        <small>Expense</small>
+    </a>
+
+    <a href="history.html">
+        <span class="material-icons">history</span>
+        <small>History</small>
+    </a>
+
+</nav>
+  <!-- =========================
+     Login Popup
+========================= -->
+
+<script>
+document.getElementById("saveMonthBtn").addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    if(transactionCount() === 0){
+
+        alert("No transactions available to save.");
+        return;
+
+    }
+
+    const name = prompt("Enter Archive Name");
+
+    if(name === null) return;
+
+    if(name.trim() === ""){
+
+        alert("Please enter a valid archive name.");
+        return;
+
+    }
+
+    createArchive(name.trim());
+
+    resetCurrentMonth();
+
+    alert("Archive Saved Successfully!");
+
+    location.reload();
+
+});
+</script>
+<script src="js/storag.js"></script>
+<script src="js/apps.js"></script>
+<script type="module" src="js/auth.js">
+
+</script>
+</body>
+</html>

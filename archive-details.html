@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Archive Details</title>
+
+    <link rel="stylesheet" href="css/money.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+
+    <header class="topbar">
+
+        <h1>Archive Details</h1>
+
+    </header>
+
+    <!-- Print Header -->
+
+    <div class="reportHeader">
+
+        <h1>ANAND</h1>
+
+        <h2>Monthly Finance Report</h2>
+
+        <hr>
+
+    </div>
+
+    <!-- Report Info -->
+
+    <div class="reportInfo">
+
+        <div>
+
+            <strong>Archive Name</strong><br>
+
+            <span id="archiveNamePrint"></span>
+
+        </div>
+
+        <div>
+
+            <strong>Saved Date</strong><br>
+
+            <span id="archiveDatePrint"></span>
+
+        </div>
+
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <!-- Summary Cards -->
+
+        <div class="cards">
+
+            <div class="card income">
+
+                <h3>Total Income</h3>
+
+                <h2 id="incomeTotal">₹0</h2>
+
+            </div>
+
+            <div class="card expense">
+
+                <h3>Total Expense</h3>
+
+                <h2 id="expenseTotal">₹0</h2>
+
+            </div>
+
+            <div class="card balance">
+
+                <h3>Remaining Balance</h3>
+
+                <h2 id="balanceTotal">₹0</h2>
+
+            </div>
+
+            <div class="card transaction">
+
+                <h3>Total Transactions</h3>
+
+                <h2 id="transactionTotal">0</h2>
+
+            </div>
+
+        </div>
+
+        <!-- Print Button -->
+
+        <div style="margin:25px 0;text-align:center;">
+
+            <button id="printReportBtn" class="btn historyBtn">
+
+                <span class="material-icons">print</span>
+
+                Print Report
+
+            </button>
+
+        </div>
+
+        <!-- Archive Information -->
+
+        <div class="card">
+
+            <h2 id="archiveName">Archive Name</h2>
+
+            <br>
+
+            <p>
+
+                <strong>Saved Date :</strong>
+
+                <span id="archiveDate"></span>
+
+            </p>
+
+        </div>
+
+        <br>
+
+        <!-- Transactions -->
+
+        <div class="title">
+
+            <h2>Transaction History</h2>
+
+        </div>
+
+        <div id="archiveTransactions">
+
+            <div class="empty">
+
+                <span class="material-icons">
+
+                    history
+
+                </span>
+
+                <p>No Transactions Found</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+
+    <nav class="bottomNav">
+
+        <a href="money.html">
+
+            <span class="material-icons">home</span>
+
+            <small>Home</small>
+
+        </a>
+
+        <a href="archive.html" class="active">
+
+            <span class="material-icons">archive</span>
+
+            <small>Archive</small>
+
+        </a>
+
+    </nav>
+
+    <!-- JavaScript -->
+
+    <script src="js/storag.js"></script>
+
+    <script src="js/archive-details.js"></script>
+
+</body>
+
+</html>

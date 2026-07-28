@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Finance Pro</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/money.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h1>📜 Transaction History</h1>
+</header>
+
+<div class="container">
+
+    <!-- Summary -->
+
+    <div class="cards">
+
+        <div class="card income">
+            <span class="material-icons">payments</span>
+            <h3>Total Income</h3>
+            <h2 id="historyIncome">₹0</h2>
+        </div>
+
+        <div class="card expense">
+            <span class="material-icons">shopping_cart</span>
+            <h3>Total Expense</h3>
+            <h2 id="historyExpense">₹0</h2>
+        </div>
+
+        <div class="card balance">
+            <span class="material-icons">account_balance_wallet</span>
+            <h3>Remaining</h3>
+            <h2 id="historyBalance">₹0</h2>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- Search -->
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="🔍 Search Transaction..."
+        class="searchBox">
+
+    <br><br>
+
+    <!-- History -->
+
+    <div id="historyList">
+
+        <div class="empty">
+
+            <span class="material-icons">
+                history
+            </span>
+
+            <p>No Transaction Found</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+    <a href="money.html">
+        <span class="material-icons">home</span>
+        <small>Home</small>
+    </a>
+
+    <a href="income.html">
+        <span class="material-icons">payments</span>
+        <small>Income</small>
+    </a>
+
+    <a href="expense.html">
+        <span class="material-icons">shopping_cart</span>
+        <small>Expense</small>
+    </a>
+
+    <a href="history.html" class="active">
+        <span class="material-icons">history</span>
+        <small>History</small>
+    </a>
+
+</nav>
+
+<script src="js/storag.js"></script>
+<script src="js/history.js"></script>
+
+</body>
+</html>

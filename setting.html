@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Finance Pro</title>
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/money.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h1>⚙️ Settings</h1>
+</header>
+
+<div class="container">
+
+    <!-- Theme Settings -->
+
+    <div class="card">
+
+        <h2 style="margin-bottom:20px;">
+            🎨 Theme Customization
+        </h2>
+
+        <div class="form-group">
+            <label>Primary Color</label>
+            <input type="color" id="primaryColor" value="#22c55e">
+        </div>
+
+        <div class="form-group">
+            <label>Background Color</label>
+            <input type="color" id="bgColor" value="#0f172a">
+        </div>
+
+        <div class="form-group">
+            <label>Second Background Color</label>
+            <input type="color" id="bg2Color" value="#1e293b">
+        </div>
+
+        <div class="form-group">
+            <label>Text Color</label>
+            <input type="color" id="textColor" value="#ffffff">
+        </div>
+
+        <div class="form-group">
+            <label>Card Color</label>
+            <input type="color" id="cardColor" value="#2d3748">
+        </div>
+
+        <div class="form-group">
+            <label>Button Color</label>
+            <input type="color" id="buttonColor" value="#22c55e">
+        </div>
+
+        <button id="saveTheme" class="btn incomeBtn">
+            <span class="material-icons">save</span>
+            Save Theme
+        </button>
+
+        <br><br>
+
+        <button id="resetTheme" class="btn expenseBtn">
+            <span class="material-icons">restart_alt</span>
+            Reset Default
+        </button>
+
+    </div>
+
+    <br>
+
+    <!-- App Settings -->
+
+    <div class="card">
+
+        <h2 style="margin-bottom:20px;">
+            🛠 App Settings
+        </h2>
+
+        <button id="clearData" class="btn expenseBtn">
+            <span class="material-icons">delete_forever</span>
+            Clear All Finance Data
+        </button>
+
+    </div>
+
+    <br>
+
+    <!-- About -->
+
+    <div class="card">
+
+        <h2>ℹ About Finance Pro</h2>
+
+        <br>
+
+        <p><b>Version :</b> 1.0</p>
+        <p><b>Developer :</b> You</p>
+        <p><b>Storage :</b> LocalStorage</p>
+        <p><b>Mode :</b> Offline</p>
+
+    </div>
+
+</div>
+
+<!-- Bottom Navigation -->
+
+<nav class="bottomNav">
+
+    <a href="money.html">
+        <span class="material-icons">home</span>
+        <small>Home</small>
+    </a>
+
+    <a href="income.html">
+        <span class="material-icons">payments</span>
+        <small>Income</small>
+    </a>
+
+    <a href="expense.html">
+        <span class="material-icons">shopping_cart</span>
+        <small>Expense</small>
+    </a>
+
+    <a href="history.html">
+        <span class="material-icons">history</span>
+        <small>History</small>
+    </a>
+
+    <a href="settings.html" class="active">
+        <span class="material-icons">setting</span>
+        <small>Settings</small>
+    </a>
+
+</nav>
+
+<script>
+  // =====================================
+// Finance Pro - Settings
+// settings.js
+// =====================================
+
+const root = document.documentElement;
+
+// ==============================
+// Elements
+// ==============================
+
+const primaryColor = document.getElementById("primaryColor");
+const bgColor = document.getElementById("bgColor");
+const bg2Color = document.getElementById("bg2Color");
+const textColor = document.getElementById("textColor");
+const cardColor = document.getElementById("cardColor");
+const buttonColor = document.getElementById("buttonColor");
+
+const saveTheme = document.getElementById("saveTheme");
+const resetTheme = document.getElementById("resetTheme");
+const clearData = document.getElementById("clearData");
+
+// ==============================
+// Load Theme
+// ==============================
+
+window.onload = function () {
+
+    primaryColor.value = localStorage.getItem("primary") || "#22c55e";
+    bgColor.value = localStorage.getItem("bg") || "#0f172a";
+    bg2Color.value = localStorage.getItem("bg2") || "#1e293b";
+    textColor.value = localStorage.getItem("text") || "#ffffff";
+    cardColor.value = localStorage.getItem("card") || "#2d3748";
+    buttonColor.value = localStorage.getItem("button") || "#22c55e";
+
+    applyTheme();
+
+};
+
+// ==============================
+// Apply Theme
+// ==============================
+
+function applyTheme() {
+
+    root.style.setProperty("--primary", primaryColor.value);
+    root.style.setProperty("--bg", bgColor.value);
+    root.style.setProperty("--bg2", bg2Color.value);
+    root.style.setProperty("--text", textColor.value);
+    root.style.setProperty("--card", cardColor.value);
+    root.style.setProperty("--button", buttonColor.value);
+
+}
+
+// ==============================
+// Save Theme
+// ==============================
+
+saveTheme.addEventListener("click", () => {
+
+    localStorage.setItem("primary", primaryColor.value);
+    localStorage.setItem("bg", bgColor.value);
+    localStorage.setItem("bg2", bg2Color.value);
+    localStorage.setItem("text", textColor.value);
+    localStorage.setItem("card", cardColor.value);
+    localStorage.setItem("button", buttonColor.value);
+
+    applyTheme();
+
+    alert("✅ Theme Saved Successfully!");
+
+});
+
+// ==============================
+// Reset Theme
+// ==============================
+
+resetTheme.addEventListener("click", () => {
+
+    localStorage.removeItem("primary");
+    localStorage.removeItem("bg");
+    localStorage.removeItem("bg2");
+    localStorage.removeItem("text");
+    localStorage.removeItem("card");
+    localStorage.removeItem("button");
+
+    primaryColor.value = "#22c55e";
+    bgColor.value = "#0f172a";
+    bg2Color.value = "#1e293b";
+    textColor.value = "#ffffff";
+    cardColor.value = "#2d3748";
+    buttonColor.value = "#22c55e";
+
+    applyTheme();
+
+    alert("Theme Reset Successfully.");
+
+});
+
+// ==============================
+// Clear Finance Data
+// ==============================
+
+clearData.addEventListener("click", () => {
+
+    const ok = confirm("Delete all Finance Data?");
+
+    if (!ok) return;
+
+    localStorage.removeItem("finance_income");
+    localStorage.removeItem("finance_expense");
+
+    alert("All Finance Data Deleted.");
+
+});
+
+// ==============================
+// Live Preview
+// ==============================
+
+primaryColor.addEventListener("input", applyTheme);
+bgColor.addEventListener("input", applyTheme);
+bg2Color.addEventListener("input", applyTheme);
+textColor.addEventListener("input", applyTheme);
+cardColor.addEventListener("input", applyTheme);
+buttonColor.addEventListener("input", applyTheme);
+  
+</script>
+<script type="module">
+  // ===============================
+// Finance Pro
+// settings.js
+// ===============================
+
+import { auth } from "./firebase.js";
+
+import {
+
+    onAuthStateChanged,
+    signOut
+
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const userPhoto = document.getElementById("userPhoto");
+const userName = document.getElementById("userName");
+const userEmail = document.getElementById("userEmail");
+const logoutBtn = document.getElementById("logoutBtn");
+
+// ===============================
+// Load User
+// ===============================
+
+onAuthStateChanged(auth,(user)=>{
+
+    if(user){
+
+        userName.textContent = user.displayName || "User";
+
+        userEmail.textContent = user.email || "";
+
+        if(user.photoURL){
+
+            userPhoto.src = user.photoURL;
+
+        }
+
+    }else{
+
+        window.location.href = "money.html";
+
+    }
+
+});
+
+// ===============================
+// Logout
+// ===============================
+
+logoutBtn.addEventListener("click",async()=>{
+
+    const ok = confirm("Are you sure you want to logout?");
+
+    if(!ok) return;
+
+    try{
+
+        await signOut(auth);
+
+        window.location.href = "money.html";
+
+    }
+
+    catch(error){
+
+        alert("Logout Failed");
+
+        console.log(error);
+
+    }
+
+});
+</script>
+<script src="js/storag.js"></script>
+</body>
+</html>
