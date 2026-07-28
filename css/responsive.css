@@ -1,0 +1,190 @@
+/* ===========================
+   Mobile (0px - 480px)
+=========================== */
+
+@media (max-width:480px){
+
+    .topbar{
+        padding:15px;
+    }
+
+    .topbar h1{
+        font-size:22px;
+    }
+
+    .container{
+        width:94%;
+        padding:15px 0;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .card{
+        padding:18px;
+    }
+
+    .card h2{
+        font-size:26px;
+    }
+
+    .card h3{
+        font-size:15px;
+    }
+
+    .card .material-icons{
+        font-size:38px;
+    }
+
+    .actions{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .btn{
+        padding:15px;
+        font-size:15px;
+    }
+
+    .title h2{
+        font-size:20px;
+    }
+
+    .transactionItem{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .amount{
+        font-size:18px;
+    }
+
+    .bottomNav small{
+        font-size:11px;
+    }
+
+    .bottomNav .material-icons{
+        font-size:22px;
+    }
+
+}
+
+
+/* ===========================
+   Tablet (481px - 768px)
+=========================== */
+
+@media (min-width:481px) and (max-width:768px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .actions{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ===========================
+   Laptop (769px - 1024px)
+=========================== */
+
+@media (min-width:769px) and (max-width:1024px){
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .actions{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+/* ===========================
+   Desktop (1025px+)
+=========================== */
+
+@media (min-width:1025px){
+
+    .cards{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .actions{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+/* ===========================
+   Large Screen
+=========================== */
+
+@media (min-width:1400px){
+
+    .container{
+        max-width:1350px;
+    }
+
+    .card{
+        padding:28px;
+    }
+
+    .card h2{
+        font-size:34px;
+    }
+
+}
+
+
+/* ===========================
+   Landscape Mobile
+=========================== */
+
+@media (max-height:500px) and (orientation:landscape){
+
+    .bottomNav{
+        position:relative;
+    }
+
+}
+
+
+/* ===========================
+   Smooth Animation
+=========================== */
+
+.card,
+.btn,
+.transactionItem{
+    animation:fadeUp .4s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+@media (max-height:500px) and (orientation:landscape){
+
+    .bottomNav{
+        position:relative;
+    }
+
+}
