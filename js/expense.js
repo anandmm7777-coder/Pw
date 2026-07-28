@@ -11,7 +11,7 @@ const date = document.getElementById("date");
 const note = document.getElementById("note");
 
 // Set Today's Date
-date.value = new Date().toISOStrg().split("T")[0];
+date.value = new Date().toISOString().split("T")[0];
 
 // ================================
 // Save Expense
@@ -69,7 +69,7 @@ expenseForm.addEventListener("submit", function (e) {
 
     // Back to Dashboard
 
-    window.location.href = "index.html";
+    window.location.href = "money.html";
 
 });
 
