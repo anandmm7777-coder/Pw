@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Many Lecture Add | JEE Admin</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+
+body{
+
+background:#f1f5f9;
+min-height:100vh;
+
+}
+
+
+
+header{
+
+height:70px;
+background:#111827;
+color:white;
+display:flex;
+align-items:center;
+padding:0 20px;
+gap:20px;
+
+}
+
+
+.back{
+
+text-decoration:none;
+color:white;
+background:#2563eb;
+padding:10px 15px;
+border-radius:10px;
+
+}
+
+
+
+.container{
+
+display:flex;
+justify-content:center;
+padding:30px;
+
+}
+
+
+
+.card{
+
+background:white;
+width:100%;
+max-width:500px;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px #0002;
+
+}
+
+
+h2{
+
+text-align:center;
+margin-bottom:20px;
+
+}
+
+
+label{
+
+display:block;
+margin-top:15px;
+font-weight:bold;
+
+}
+
+
+input,
+select{
+
+width:100%;
+padding:13px;
+margin-top:7px;
+border:1px solid #ddd;
+border-radius:10px;
+
+}
+
+
+
+button{
+
+margin-top:25px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#2563eb;
+color:white;
+font-size:17px;
+font-weight:bold;
+
+}
+
+
+
+#msg{
+
+text-align:center;
+margin-top:20px;
+font-weight:bold;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<a href="admin.html" class="back">
+← Back
+</a>
+
+<h2>
+Many Lecture Add
+</h2>
+
+</header>
+
+
+
+<div class="container">
+
+
+<div class="card">
+
+
+<h2>
+Bulk Lecture Creator
+</h2>
+
+
+
+<label>
+Select Chapter
+</label>
+
+<select id="chapter">
+
+<option value="">
+Select Chapter
+</option>
+
+</select>
+
+
+
+
+<label>
+Lecture Name
+</label>
+
+<input 
+id="title"
+placeholder="Example: Physics Chapter 1">
+
+
+
+<label>
+Start Lecture
+</label>
+
+<input 
+type="number"
+id="start"
+placeholder="1">
+
+
+
+<label>
+End Lecture
+</label>
+
+<input 
+type="number"
+id="end"
+placeholder="10">
+
+
+
+<label>
+Duration
+</label>
+
+<input
+id="duration"
+placeholder="45 min">
+
+
+
+<label>
+Video Link
+</label>
+
+<input
+id="video"
+placeholder="Video URL">
+
+
+
+<label>
+Notes Link
+</label>
+
+<input
+id="notes"
+placeholder="PDF URL">
+
+
+
+<button onclick="addMany()">
+
+Add All Lectures
+
+</button>
+
+
+
+<p id="msg"></p>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<script>
+
+
+let chapters =
+JSON.parse(
+localStorage.getItem("chapters")
+) || [];
+
+
+
+let lectures =
+JSON.parse(
+localStorage.getItem("lectures")
+) || [];
+
+
+
+let chapterBox =
+document.getElementById("chapter");
+
+
+
+chapters.forEach(ch=>{
+
+
+chapterBox.innerHTML +=
+
+`
+<option value="${ch.id}">
+
+${ch.name} (${ch.subject})
+
+</option>
+
+`;
+
+});
+
+
+
+
+
+function addMany(){
+
+
+
+let chapterId =
+Number(chapterBox.value);
+
+
+
+let title =
+document.getElementById("title").value;
+
+
+
+let start =
+Number(document.getElementById("start").value);
+
+
+
+let end =
+Number(document.getElementById("end").value);
+
+
+
+let duration =
+document.getElementById("duration").value;
+
+
+
+let video =
+document.getElementById("video").value;
+
+
+
+let notes =
+document.getElementById("notes").value;
+
+
+
+if(!chapterId || !title || !start || !end){
+
+show(
+"Fill all required fields",
+"red"
+);
+
+return;
+
+}
+
+
+
+for(
+let i=start;
+i<=end;
+i++
+){
+
+
+lectures.push({
+
+id:Date.now()+i,
+
+chapterId:chapterId,
+
+title:title+" - Lecture "+i,
+
+duration:duration || "45 min",
+
+video:video,
+
+notes:notes,
+
+createdAt:
+new Date().toISOString()
+
+
+});
+
+
+}
+
+
+
+localStorage.setItem(
+
+"lectures",
+
+JSON.stringify(lectures)
+
+);
+
+
+
+show(
+
+(end-start+1)+" Lectures Added Successfully",
+
+"green"
+
+);
+
+
+
+}
+
+
+
+function show(text,color){
+
+let m=document.getElementById("msg");
+
+m.innerHTML=text;
+
+m.style.color=color;
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
