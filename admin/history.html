@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Content History | JEE Rank Tracker Pro</title>
+
+<link rel="stylesheet" href="css/history.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* =====================================
+   JEE Rank Tracker Pro
+   History Page CSS
+   Part 1
+===================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+:root{
+
+--primary:#2563eb;
+--secondary:#7c3aed;
+--dark:#0f172a;
+--card:#ffffff;
+--bg:#f1f5f9;
+--text:#111827;
+--muted:#64748b;
+--border:#e5e7eb;
+
+}
+
+body{
+
+background:var(--bg);
+min-height:100vh;
+display:flex;
+color:var(--text);
+
+}
+
+
+
+/* ==========================
+OVERLAY
+========================== */
+
+#overlay{
+
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.45);
+display:none;
+z-index:900;
+
+}
+
+#overlay.show{
+
+display:block;
+
+}
+
+
+
+/* ==========================
+SIDEBAR
+========================== */
+
+.sidebar{
+
+position:fixed;
+left:0;
+top:0;
+
+width:270px;
+height:100vh;
+
+background:
+linear-gradient(
+180deg,
+#111827,
+#020617
+);
+
+padding:25px;
+
+color:white;
+
+display:flex;
+flex-direction:column;
+
+z-index:1000;
+
+transition:.35s;
+
+}
+
+.brand{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+margin-bottom:40px;
+
+}
+
+.brand-icon{
+
+width:58px;
+height:58px;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#38bdf8
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:24px;
+
+}
+
+.brand h2{
+
+font-size:24px;
+
+}
+
+.brand span{
+
+font-size:13px;
+color:#94a3b8;
+
+}
+
+
+
+/* ==========================
+NAVIGATION
+========================== */
+
+.sidebar nav{
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
+}
+
+.sidebar nav a{
+
+display:flex;
+align-items:center;
+gap:14px;
+
+padding:14px 16px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+color:#cbd5e1;
+
+transition:.3s;
+
+font-size:15px;
+
+}
+
+.sidebar nav a i{
+
+width:22px;
+text-align:center;
+
+}
+
+.sidebar nav a:hover{
+
+background:#1e3a8a;
+
+color:white;
+
+transform:translateX(5px);
+
+}
+
+.sidebar nav a.active{
+
+background:#2563eb;
+
+color:white;
+
+box-shadow:
+0 8px 25px rgba(37,99,235,.35);
+
+}
+
+
+
+/* ==========================
+MAIN
+========================== */
+
+.main{
+
+margin-left:270px;
+
+width:calc(100% - 270px);
+
+padding:25px;
+
+}
+
+
+
+/* ==========================
+TOPBAR
+========================== */
+
+.topbar{
+
+background:white;
+
+padding:20px 25px;
+
+border-radius:22px;
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+margin-bottom:25px;
+
+}
+
+#menuBtn{
+
+display:none;
+
+width:45px;
+height:45px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+cursor:pointer;
+
+font-size:18px;
+
+}
+
+.topbar h1{
+
+font-size:28px;
+
+font-weight:700;
+
+}
+
+.topbar p{
+
+margin-top:4px;
+
+font-size:14px;
+
+color:var(--muted);
+
+}
+
+
+
+/* ==========================
+SEARCH
+========================== */
+
+.search-box{
+
+position:relative;
+
+margin-bottom:25px;
+
+}
+
+.search-box input{
+
+width:100%;
+
+padding:16px 55px 16px 18px;
+
+border:none;
+
+outline:none;
+
+background:white;
+
+border-radius:16px;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.08);
+
+font-size:15px;
+
+}
+
+.search-box input:focus{
+
+box-shadow:
+0 0 0 4px rgba(37,99,235,.15);
+
+}
+
+.search-box i{
+
+position:absolute;
+
+right:20px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+color:#64748b;
+
+font-size:18px;
+
+}
+  /* =====================================
+   HISTORY PAGE CSS
+   PART 2
+===================================== */
+
+
+/* ==========================
+PANEL
+========================== */
+
+.panel{
+
+background:#fff;
+
+border-radius:22px;
+
+padding:25px;
+
+margin-bottom:30px;
+
+box-shadow:
+0 12px 30px rgba(15,23,42,.08);
+
+animation:fadeUp .35s ease;
+
+}
+
+
+
+.panel-title{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+margin-bottom:20px;
+
+}
+
+
+
+.panel-title h2{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+font-size:22px;
+
+font-weight:700;
+
+color:#0f172a;
+
+}
+
+
+
+.panel-title i{
+
+color:#2563eb;
+
+font-size:20px;
+
+}
+
+
+
+/* ==========================
+TABLE
+========================== */
+
+.table-box{
+
+overflow:auto;
+
+border-radius:18px;
+
+border:1px solid #e5e7eb;
+
+}
+
+
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+min-width:850px;
+
+background:#fff;
+
+}
+
+
+
+thead{
+
+background:
+linear-gradient(
+90deg,
+#2563eb,
+#1d4ed8
+);
+
+}
+
+
+
+thead th{
+
+padding:16px;
+
+color:#fff;
+
+font-size:14px;
+
+font-weight:600;
+
+text-align:left;
+
+}
+
+
+
+tbody td{
+
+padding:15px;
+
+border-bottom:1px solid #eef2f7;
+
+font-size:14px;
+
+color:#334155;
+
+vertical-align:middle;
+
+}
+
+
+
+tbody tr{
+
+transition:.25s;
+
+}
+
+
+
+tbody tr:hover{
+
+background:#eff6ff;
+
+}
+
+
+
+tbody tr:last-child td{
+
+border-bottom:none;
+
+}
+
+
+
+/* ==========================
+STATUS BADGE
+========================== */
+
+.badge{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:6px 12px;
+
+border-radius:30px;
+
+font-size:12px;
+
+font-weight:600;
+
+}
+
+
+
+.badge.physics{
+
+background:#dbeafe;
+
+color:#1d4ed8;
+
+}
+
+
+
+.badge.chemistry{
+
+background:#dcfce7;
+
+color:#15803d;
+
+}
+
+
+
+.badge.math{
+
+background:#f3e8ff;
+
+color:#7c3aed;
+
+}
+
+
+
+/* ==========================
+ACTION BUTTONS
+========================== */
+
+.action-group{
+
+display:flex;
+
+gap:10px;
+
+}
+
+
+
+.action-btn{
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+padding:10px 14px;
+
+border-radius:12px;
+
+font-size:14px;
+
+font-weight:600;
+
+transition:.25s;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+
+
+.edit-btn{
+
+background:#2563eb;
+
+color:#fff;
+
+}
+
+
+
+.edit-btn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+box-shadow:
+0 8px 18px rgba(37,99,235,.25);
+
+}
+
+
+
+.delete-btn{
+
+background:#ef4444;
+
+color:#fff;
+
+}
+
+
+
+.delete-btn:hover{
+
+background:#dc2626;
+
+transform:translateY(-2px);
+
+box-shadow:
+0 8px 18px rgba(239,68,68,.25);
+
+}
+
+
+
+/* ==========================
+EMPTY STATE
+========================== */
+
+.empty{
+
+padding:50px 20px;
+
+text-align:center;
+
+}
+
+
+
+.empty i{
+
+font-size:55px;
+
+color:#94a3b8;
+
+margin-bottom:15px;
+
+}
+
+
+
+.empty h3{
+
+font-size:22px;
+
+color:#334155;
+
+margin-bottom:8px;
+
+}
+
+
+
+.empty p{
+
+color:#64748b;
+
+}
+
+
+
+/* ==========================
+LOADER
+========================== */
+
+.loader{
+
+width:55px;
+
+height:55px;
+
+border:5px solid #dbeafe;
+
+border-top:5px solid #2563eb;
+
+border-radius:50%;
+
+animation:spin .8s linear infinite;
+
+margin:35px auto;
+
+}
+
+
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+
+/* ==========================
+ANIMATION
+========================== */
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/* =====================================
+   HISTORY PAGE CSS
+   PART 3
+===================================== */
+
+
+/* ==========================
+CUSTOM SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#e2e8f0;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#1d4ed8;
+
+}
+
+
+
+/* ==========================
+TABLE SCROLL
+========================== */
+
+.table-box{
+
+overflow-x:auto;
+
+scroll-behavior:smooth;
+
+}
+
+.table-box::-webkit-scrollbar{
+
+height:8px;
+
+}
+
+
+
+/* ==========================
+HOVER EFFECTS
+========================== */
+
+.panel{
+
+transition:.35s;
+
+}
+
+.panel:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 18px 45px rgba(0,0,0,.12);
+
+}
+
+
+
+.search-box input{
+
+transition:.3s;
+
+}
+
+.search-box input:hover{
+
+box-shadow:
+0 10px 25px rgba(37,99,235,.15);
+
+}
+
+
+
+/* ==========================
+BUTTON EFFECTS
+========================== */
+
+button{
+
+transition:.25s;
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+
+
+/* ==========================
+MOBILE
+========================== */
+
+@media(max-width:900px){
+
+.sidebar{
+
+left:-280px;
+
+}
+
+.sidebar.active{
+
+left:0;
+
+}
+
+.main{
+
+margin-left:0;
+
+width:100%;
+
+}
+
+#menuBtn{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+.topbar{
+
+padding:18px;
+
+}
+
+.panel{
+
+padding:18px;
+
+}
+
+.panel-title h2{
+
+font-size:18px;
+
+}
+
+.search-box{
+
+margin-top:18px;
+
+}
+
+}
+
+
+
+@media(max-width:600px){
+
+.main{
+
+padding:15px;
+
+}
+
+.topbar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+.topbar h1{
+
+font-size:22px;
+
+}
+
+.search-box input{
+
+font-size:14px;
+
+padding:14px 45px 14px 15px;
+
+}
+
+.action-group{
+
+flex-direction:column;
+
+}
+
+.action-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+table{
+
+min-width:650px;
+
+}
+
+}
+
+
+
+/* ==========================
+FADE ANIMATION
+========================== */
+
+.fade{
+
+animation:fadeIn .35s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* ==========================
+SUCCESS / DELETE FLASH
+========================== */
+
+.flash-success{
+
+animation:successFlash .5s;
+
+}
+
+@keyframes successFlash{
+
+0%{
+
+background:#dcfce7;
+
+}
+
+100%{
+
+background:transparent;
+
+}
+
+}
+
+
+
+.flash-delete{
+
+animation:deleteFlash .45s;
+
+}
+
+@keyframes deleteFlash{
+
+0%{
+
+background:#fee2e2;
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+
+
+/* ==========================
+PRINT
+========================== */
+
+@media print{
+
+.sidebar,
+.topbar,
+.search-box,
+.action-group,
+#menuBtn{
+
+display:none !important;
+
+}
+
+.main{
+
+margin:0;
+
+padding:0;
+
+width:100%;
+
+}
+
+.panel{
+
+box-shadow:none;
+
+border:1px solid #ddd;
+
+}
+
+body{
+
+background:white;
+
+}
+
+}
+  
+</style>
+</head>
+
+<body>
+
+<!-- Overlay -->
+
+<div id="overlay"></div>
+
+<!-- Sidebar -->
+
+<aside class="sidebar" id="sidebar">
+
+<div class="brand">
+
+<div class="brand-icon">
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+</div>
+
+<div>
+
+<h2>JEE Pro</h2>
+
+<span>Admin Panel</span>
+
+</div>
+
+</div>
+
+<nav>
+
+<a href="admin.html">
+
+<i class="fa-solid fa-chart-line"></i>
+
+Dashboard
+
+</a>
+
+<a href="add-chapter.html">
+
+<i class="fa-solid fa-folder-plus"></i>
+
+Add Chapter
+
+</a>
+
+<a href="add-lecture.html">
+
+<i class="fa-solid fa-video"></i>
+
+Add Lecture
+
+</a>
+
+<a class="active" href="history.html">
+
+<i class="fa-solid fa-clock-rotate-left"></i>
+
+History
+
+</a>
+
+<a href="../index.html">
+
+<i class="fa-solid fa-house"></i>
+
+Website
+
+</a>
+
+</nav>
+
+</aside>
+
+<!-- Main -->
+
+<main class="main">
+
+<header class="topbar">
+
+<button id="menuBtn">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+<div>
+
+<h1>Content History</h1>
+
+<p>Edit or Delete Chapters & Lectures</p>
+
+</div>
+
+</header>
+
+<!-- Search -->
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search chapter or lecture...">
+
+<i class="fa-solid fa-search"></i>
+
+</div>
+
+<!-- Chapters -->
+
+<section class="panel">
+
+<div class="panel-title">
+
+<h2>
+
+<i class="fa-solid fa-book"></i>
+
+All Chapters
+
+</h2>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>Subject</th>
+
+<th>Chapter</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="chapterTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- Lectures -->
+
+<section class="panel">
+
+<div class="panel-title">
+
+<h2>
+
+<i class="fa-solid fa-video"></i>
+
+All Lectures
+
+</h2>
+
+</div>
+
+<div class="table-box">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>#</th>
+
+<th>Lecture</th>
+
+<th>Chapter</th>
+
+<th>Duration</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="lectureTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+// =====================================
+// JEE Rank Tracker Pro
+// History Page JS
+// Part 1
+// =====================================
+
+// ----------------------
+// LocalStorage Data
+// ----------------------
+
+let chapters =
+JSON.parse(
+localStorage.getItem("chapters")
+) || [];
+
+let lectures =
+JSON.parse(
+localStorage.getItem("lectures")
+) || [];
+
+
+// ----------------------
+// Elements
+// ----------------------
+
+const chapterTable =
+document.getElementById("chapterTable");
+
+const lectureTable =
+document.getElementById("lectureTable");
+
+const searchInput =
+document.getElementById("searchInput");
+
+
+// ----------------------
+// Render Chapters
+// ----------------------
+
+function renderChapters(data = chapters){
+
+if(!chapterTable) return;
+
+chapterTable.innerHTML = "";
+
+if(data.length===0){
+
+chapterTable.innerHTML=`
+
+<tr>
+
+<td colspan="4">
+
+No Chapters Found
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+data.forEach((chapter,index)=>{
+
+chapterTable.innerHTML += `
+
+<tr>
+
+<td>${index+1}</td>
+
+<td>${chapter.subject || "-"}</td>
+
+<td>${chapter.name || "-"}</td>
+
+<td>
+
+<div class="action-group">
+
+<button
+class="action-btn edit-btn"
+onclick="editChapter(${chapter.id})">
+
+<i class="fa-solid fa-pen"></i>
+
+Edit
+
+</button>
+
+<button
+class="action-btn delete-btn"
+onclick="deleteChapter(${chapter.id})">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+
+// ----------------------
+// Render Lectures
+// ----------------------
+
+function renderLectures(data = lectures){
+
+if(!lectureTable) return;
+
+lectureTable.innerHTML="";
+
+if(data.length===0){
+
+lectureTable.innerHTML=`
+
+<tr>
+
+<td colspan="5">
+
+No Lectures Found
+
+</td>
+
+</tr>
+
+`;
+
+return;
+
+}
+
+data.forEach((lecture,index)=>{
+
+lectureTable.innerHTML += `
+
+<tr>
+
+<td>${index+1}</td>
+
+<td>${lecture.title || "-"}</td>
+
+<td>${lecture.chapter || "-"}</td>
+
+<td>${lecture.duration || "45 min"}</td>
+
+<td>
+
+<div class="action-group">
+
+<button
+class="action-btn edit-btn"
+onclick="editLecture(${lecture.id})">
+
+<i class="fa-solid fa-pen"></i>
+
+Edit
+
+</button>
+
+<button
+class="action-btn delete-btn"
+onclick="deleteLecture(${lecture.id})">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+
+
+// ----------------------
+// Initial Load
+// ----------------------
+
+renderChapters();
+
+renderLectures();
+  // =====================================
+// History JS
+// Part 2
+// Edit / Delete System
+// =====================================
+
+
+// ----------------------------
+// Edit Chapter
+// ----------------------------
+
+window.editChapter = function(id){
+
+const index = chapters.findIndex(
+item => item.id == id
+);
+
+if(index === -1){
+alert("Chapter not found.");
+return;
+}
+
+let newSubject = prompt(
+"Edit Subject",
+chapters[index].subject
+);
+
+if(newSubject === null) return;
+
+let newName = prompt(
+"Edit Chapter Name",
+chapters[index].name
+);
+
+if(newName === null) return;
+
+chapters[index].subject = newSubject.trim();
+chapters[index].name = newName.trim();
+
+localStorage.setItem(
+"chapters",
+JSON.stringify(chapters)
+);
+
+renderChapters();
+
+alert("Chapter Updated Successfully.");
+
+};
+
+
+
+
+// ----------------------------
+// Delete Chapter
+// ----------------------------
+
+window.deleteChapter = function(id){
+
+let ok = confirm(
+"Delete this chapter?"
+);
+
+if(!ok) return;
+
+chapters = chapters.filter(
+item => item.id != id
+);
+
+localStorage.setItem(
+"chapters",
+JSON.stringify(chapters)
+);
+
+renderChapters();
+
+alert("Chapter Deleted.");
+
+};
+
+
+
+
+// ----------------------------
+// Edit Lecture
+// ----------------------------
+
+window.editLecture = function(id){
+
+const index = lectures.findIndex(
+item => item.id == id
+);
+
+if(index === -1){
+alert("Lecture not found.");
+return;
+}
+
+let title = prompt(
+"Lecture Title",
+lectures[index].title
+);
+
+if(title === null) return;
+
+let chapter = prompt(
+"Chapter",
+lectures[index].chapter
+);
+
+if(chapter === null) return;
+
+let duration = prompt(
+"Duration",
+lectures[index].duration
+);
+
+if(duration === null) return;
+
+lectures[index].title = title.trim();
+lectures[index].chapter = chapter.trim();
+lectures[index].duration = duration.trim();
+
+localStorage.setItem(
+"lectures",
+JSON.stringify(lectures)
+);
+
+renderLectures();
+
+alert("Lecture Updated Successfully.");
+
+};
+
+
+
+
+// ----------------------------
+// Delete Lecture
+// ----------------------------
+
+window.deleteLecture = function(id){
+
+let ok = confirm(
+"Delete this lecture?"
+);
+
+if(!ok) return;
+
+lectures = lectures.filter(
+item => item.id != id
+);
+
+localStorage.setItem(
+"lectures",
+JSON.stringify(lectures)
+);
+
+renderLectures();
+
+alert("Lecture Deleted.");
+
+};
+  // =====================================
+// History JS
+// Part 3
+// Search + Sidebar + Init
+// =====================================
+
+
+// -------------------------
+// Live Search
+// -------------------------
+
+if(searchInput){
+
+searchInput.addEventListener("input",()=>{
+
+const value =
+searchInput.value
+.toLowerCase()
+.trim();
+
+const filteredChapters = chapters.filter(item=>{
+
+const subject =
+(item.subject || "")
+.toLowerCase();
+
+const chapter =
+(item.name || "")
+.toLowerCase();
+
+return subject.includes(value)
+||
+chapter.includes(value);
+
+});
+
+const filteredLectures = lectures.filter(item=>{
+
+const title =
+(item.title || "")
+.toLowerCase();
+
+const chapter =
+(item.chapter || "")
+.toLowerCase();
+
+return title.includes(value)
+||
+chapter.includes(value);
+
+});
+
+renderChapters(filteredChapters);
+
+renderLectures(filteredLectures);
+
+});
+
+}
+
+
+
+// -------------------------
+// Sidebar
+// -------------------------
+
+const menuBtn =
+document.getElementById("menuBtn");
+
+const sidebar =
+document.getElementById("sidebar");
+
+const overlay =
+document.getElementById("overlay");
+
+if(menuBtn){
+
+menuBtn.onclick=()=>{
+
+sidebar.classList.toggle("active");
+
+overlay.classList.toggle("show");
+
+};
+
+}
+
+if(overlay){
+
+overlay.onclick=()=>{
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("show");
+
+};
+
+}
+
+
+
+// -------------------------
+// ESC Close
+// -------------------------
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Escape"){
+
+sidebar.classList.remove("active");
+
+overlay.classList.remove("show");
+
+}
+
+});
+
+
+
+// -------------------------
+// Refresh
+// -------------------------
+
+function refreshHistory(){
+
+chapters =
+JSON.parse(
+localStorage.getItem("chapters")
+) || [];
+
+lectures =
+JSON.parse(
+localStorage.getItem("lectures")
+) || [];
+
+renderChapters();
+
+renderLectures();
+
+}
+
+
+
+// -------------------------
+// Auto Refresh
+// -------------------------
+
+window.addEventListener("focus",()=>{
+
+refreshHistory();
+
+});
+
+
+
+// -------------------------
+// Start
+// -------------------------
+
+window.onload=()=>{
+
+refreshHistory();
+
+};
+  
+</script>
+
+</body>
+
+</html>
